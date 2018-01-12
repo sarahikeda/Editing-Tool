@@ -1,0 +1,22 @@
+.summary {
+  margin: 10px 0 30px 10px;
+}
+
+.section-title {
+  font-size: 20px;
+}
+
+.section-explanation {
+  font-size: 10px;
+}
+
+.summary-text {
+  resize: none;
+  border: none;
+  width: 350px;
+  font-size: 12px;
+  &:hover, &:focus, &:active {
+    outline: 0px !important;
+    -webskit-appearance: none;
+  }
+}
