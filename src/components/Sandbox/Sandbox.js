@@ -1,59 +1,50 @@
 import React, { Component } from 'react';
-
-var FontAwesome = require('react-fontawesome');
-
-var placeholder = document.createElement("li");
-placeholder.className = "placeholder";
+import CKEditor from "react-ckeditor-component";
 
 class Sandbox extends Component {
   constructor(props) {
     super(props);
-    this.state = {...props};
+    this.state = {
+      content: 'content',
+    }
   }
-  dragStart(e) {
-    this.dragged = e.currentTarget;
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.dragged);
-  }
-  dragEnd(e) {
-    this.dragged.style.display = 'block';
-    this.dragged.parentNode.removeChild(placeholder);
 
-    // update state
-    var data = this.state.documents;
-    var from = Number(this.dragged.dataset.id);
-    var to = Number(this.over.dataset.id);
-    if(from < to) to--;
-    data.splice(to, 0, data.splice(from, 1)[0]);
-    this.setState({documents: data});
+  updateContent = (newContent) => {
+    this.setState({
+      content: newContent
+    })
   }
-  dragOver(e) {
-    e.preventDefault();
-    this.dragged.style.display = "none";
-    if(e.target.className === 'placeholder') return;
-    this.over = e.target;
-    e.target.parentNode.insertBefore(placeholder, e.target);
+
+  onChange = (evt) => {
+    console.log("onChange fired with event info: ", evt);
+    var newContent = evt.editor.getData();
+    this.setState({
+      content: newContent
+    })
   }
-	render() {
-    var listItems = this.state.documents.map((item, i) => {
-      return (
-        <li
-          data-id={i}
-          key={i}
-          draggable='true'
-          onDragEnd={this.dragEnd.bind(this)}
-          onDragStart={this.dragStart.bind(this)}>{item}</li>
-      )
-     });
+
+  onBlur = (evt) => {
+    console.log("onBlur event called with event info: ", evt);
+  }
+
+  afterPaste = (evt) => {
+    console.log("afterPaste event called with event info: ", evt);
+  }
+
+  render() {
     return (
-      <div className="sandbox">
-        <FontAwesome className='plus-circle' name='plus-circle'/>
-        <ul onDragOver={this.dragOver.bind(this)}>
-          {listItems}
-        </ul>
-      </div>
-		)
-	}
+      <CKEditor
+        activeClass="p10"
+        content={this.state.content}
+        events={{
+          "blur": this.onBlur,
+          "afterPaste": this.afterPaste,
+          "change": this.onChange
+        }}
+      />
+    )
+  }
 }
+
 
 export default Sandbox;
