@@ -5,7 +5,7 @@ class Sandbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: 'content',
+      content: 'Drag files here or just start typing',
     }
   }
 
@@ -33,15 +33,26 @@ class Sandbox extends Component {
 
   render() {
     return (
-      <CKEditor
-        activeClass="ck-editor"
-        content={this.state.content}
-        events={{
-          "blur": this.onBlur,
-          "afterPaste": this.afterPaste,
-          "change": this.onChange
-        }}
-      />
+      <div className="sandbox">
+
+        <CKEditor
+          activeClass="ck-editor"
+          content={this.state.content}
+          config={
+            {
+              removeButtons: 'Copy,Cut,Clipboard,Paste,Undo,Redo,Print,Form,TextField,Textarea,Button,SelectAll,NumberedList,BulletedList,CreateDiv,Table,PasteText,PasteFromWord,Select,HiddenField'
+            },
+            {
+              removePlugins: 'sourcearea, format,stylescombo,table,blockquote, elementspath,save,image,flash,iframe,link,smiley,specialchar,pastefromword, pastetext,tabletools,find,pagebreak,templates,about,maximize,showblocks,newpage,language, undo, basicstyles, horizontalrule, removeformat, clipboard, toolbar'
+            }
+          }
+          events={{
+            "blur": this.onBlur,
+            "afterPaste": this.afterPaste,
+            "change": this.onChange
+          }}
+        />
+      </div>
     )
   }
 }
