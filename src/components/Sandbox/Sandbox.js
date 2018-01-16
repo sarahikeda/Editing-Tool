@@ -34,7 +34,7 @@ class Sandbox extends Component {
   render() {
     return (
       <CKEditor
-        activeClass="p10"
+        activeClass="ck-editor"
         content={this.state.content}
         events={{
           "blur": this.onBlur,
