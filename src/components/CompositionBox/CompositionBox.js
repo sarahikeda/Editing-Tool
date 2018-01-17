@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Summary from '../Summary/Summary';
 import Title from '../Title/Title';
-import PlusIcon from '../PlusIcon/PlusIcon';
 import Sandbox from '../Sandbox/Sandbox';
 import Tags from '../Tags/Tags';
 import Signature from '../Signature/Signature';
@@ -18,7 +17,6 @@ class CompositionBox extends Component {
       <div className="composition-box">
         <Summary/>
         <Title/>
-        <PlusIcon/>
         <Sandbox documents={this.state.documents}/>
         <Tags/>
         <Signature/>

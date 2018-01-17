@@ -60,31 +60,33 @@
   margin: 0 300px; }
 
 .summary {
-  margin: 10px 0 30px 10px; }
+  margin: 10px 0 10px 10px; }
 
-.section-title {
-  font-size: 20px; }
+.citi-logo {
+  width: 200px;
+  margin-left: -5px; }
 
 .section-explanation {
   font-size: 10px; }
 
-.summary-text {
-  resize: none;
-  border: none;
-  width: 350px;
-  font-size: 12px; }
-  .summary-text:hover, .summary-text:focus, .summary-text:active {
-    outline: 0px !important;
-    -webskit-appearance: none; }
+.current-date {
+  color: black;
+  font-size: 11px;
+  font-weight: bold; }
 
-.date {
-  font-size: 10px;
-  margin-bottom: 10px; }
+.title {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 40px; }
+
+.section-title {
+  font-size: 12px;
+  margin-left: 10px; }
 
 .plus-circle {
+  width: 25px;
   position: absolute;
-  margin-left: -25px;
-  font-size: 22px; }
+  margin-left: -35px; }
 
 .tags {
   margin-top: 100px;

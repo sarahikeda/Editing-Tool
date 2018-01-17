@@ -6,7 +6,7 @@ class Editor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: 'Drag files here or just start typing',
+      content: ' ',
       showNewEditor: false,
       icons: 'toolbar',
     }
@@ -25,7 +25,7 @@ class Editor extends Component {
     this.setState({
       content: newContent,
       showNewEditor: !this.state.showNewEditor,
-      icons: 'clipboard, pastetext, pastefromword,specialchar,tab,table,tabletools,undo,wsc,a11yhelp,about,basicstyles,sourcearea,showborders,scayt,resize,maximize,link,blockquote,format,horizontalrule,stylescombo,list,indent,indentlist,removeformat'
+      icons: 'clipboard, pastetext, pastefromword,specialchar,tab,table,tabletools,undo,wsc,a11yhelp,about,basicstyles,sourcearea,showborders,scayt,resize,maximize,blockquote,format,horizontalrule,stylescombo,list,indent,indentlist,removeformat'
     })
   }
 
@@ -61,7 +61,9 @@ class Editor extends Component {
           events={{
             "blur": this.onBlur,
             "afterPaste": this.afterPaste,
-            "change": this.onChange
+            "change": this.afterPaste,
+            "keydown": this.onChange,
+            "keyup": this.onChange
           }}
          />
       </div>
