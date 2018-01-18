@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^1.0.0-alpha.2",
     "bootstrap": "^3.3.7",
     "create-react-class": "^15.6.2",
     "font-awesome": "^4.7.0",

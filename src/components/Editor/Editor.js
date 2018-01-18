@@ -1,75 +1,84 @@
-import React, { Component } from 'react';
-import CKEditor from "react-ckeditor-component";
-import PlusIcon from '../PlusIcon/PlusIcon';
+import React from "react";
+import PropTypes from "prop-types";
+import ReactDOM from "react-dom";
+const loadScript = require('load-script');
 
-class Editor extends Component {
+var defaultScriptUrl = "https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js";
+
+/**
+ * @author codeslayer1
+ * @description Editor component to render a Editor textarea with defined configs and all Editor events handler
+ */
+class Editor extends React.Component {
   constructor(props) {
     super(props);
+    //State initialization
     this.state = {
-      content: ' ',
-      showNewEditor: false,
-      icons: 'toolbar',
+      isScriptLoaded: this.props.isScriptLoaded,
+      config: this.props.config
+    };
+  }
+
+  //load ckeditor script as soon as component mounts if not already loaded
+  componentDidMount() {
+    if(!this.props.isScriptLoaded){
+      loadScript(this.props.scriptUrl, this.onLoad);
+    }else{
+      this.onLoad();
     }
   }
 
-  updateContent = (newContent) => {
+  componentWillUnmount() {
+    this.unmounting = true;
+  }
+
+  onLoad = () => {
+    if (this.unmounting) return;
+
     this.setState({
-      content: newContent,
-    })
-  }
+      isScriptLoaded: true
+    });
 
-  onChange = (event) => {
-    console.log("onChange fired with event info: ", event);
-    var newContent = event.editor.getData();
-    console.log(newContent)
-    this.setState({
-      content: newContent,
-      showNewEditor: !this.state.showNewEditor,
-      icons: 'clipboard, pastetext, pastefromword,specialchar,tab,table,tabletools,undo,wsc,a11yhelp,about,basicstyles,sourcearea,showborders,scayt,resize,maximize,blockquote,format,horizontalrule,stylescombo,list,indent,indentlist,removeformat'
-    })
-    // event.editor.destroy(true);
-  }
+    if (!window.CKEDITOR) {
+      console.error("Editor not found");
+      return;
+    }
 
-  onBlur = (event) => {
-    console.log("onBlur event called with event info: ", event);
-  }
+    this.editorInstance = window.CKEDITOR.appendTo(
+      ReactDOM.findDOMNode(this),
+      this.state.config,
+      this.props.content
+    );
 
-  afterPaste = (event) => {
-    console.log("afterPaste event called with event info: ", event);
+    //Register listener for custom events if any
+    for(var event in this.props.events){
+      var eventHandler = this.props.events[event];
+
+      this.editorInstance.on(event, eventHandler);
+    }
   }
 
   render() {
-    return (
-      <div className="editor">
-        <PlusIcon handleClick={this.onClick}/>
-        {this.state.showNewEditor &&
-          <CKEditor
-            config={
-              {
-                removePlugins: this.state.icons
-              }
-            }
-          />
-        }
-        <CKEditor
-          activeClass="p10"
-          content={this.state.content}
-          config={
-            {
-              removePlugins: 'toolbar'
-            }
-          }
-          events={{
-            "blur": this.onBlur,
-            "afterPaste": this.afterPaste,
-            "change": this.onChange,
-            "keydown": this.onChange,
-            "keyup": this.onChange
-          }}
-         />
-      </div>
-    )
+    return <div className={this.props.activeClass} />;
   }
 }
+
+Editor.defaultProps = {
+  content: "",
+  config: {},
+  isScriptLoaded: false,
+  scriptUrl: defaultScriptUrl,
+  activeClass: "",
+  events: {}
+};
+
+Editor.propTypes = {
+  content: PropTypes.any,
+  config: PropTypes.object,
+  isScriptLoaded: PropTypes.bool,
+  scriptUrl: PropTypes.string,
+  activeClass: PropTypes.string,
+  events: PropTypes.object
+};
 
 export default Editor;
