@@ -21,12 +21,13 @@ class Editor extends Component {
   onChange = (event) => {
     console.log("onChange fired with event info: ", event);
     var newContent = event.editor.getData();
-    event.editor.destroy(true);
+    console.log(newContent)
     this.setState({
       content: newContent,
       showNewEditor: !this.state.showNewEditor,
       icons: 'clipboard, pastetext, pastefromword,specialchar,tab,table,tabletools,undo,wsc,a11yhelp,about,basicstyles,sourcearea,showborders,scayt,resize,maximize,blockquote,format,horizontalrule,stylescombo,list,indent,indentlist,removeformat'
     })
+    // event.editor.destroy(true);
   }
 
   onBlur = (event) => {
@@ -61,7 +62,7 @@ class Editor extends Component {
           events={{
             "blur": this.onBlur,
             "afterPaste": this.afterPaste,
-            "change": this.afterPaste,
+            "change": this.onChange,
             "keydown": this.onChange,
             "keyup": this.onChange
           }}
