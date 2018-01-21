@@ -1,21 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
+import PlusIcon from '../PlusIcon/PlusIcon';
 const loadScript = require('load-script');
 
 var defaultScriptUrl = "https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js";
 
-/**
- * @author codeslayer1
- * @description Editor component to render a Editor textarea with defined configs and all Editor events handler
- */
 class Editor extends React.Component {
   constructor(props) {
     super(props);
+
     //State initialization
     this.state = {
       isScriptLoaded: this.props.isScriptLoaded,
-      config: this.props.config
+      config: this.props.config,
     };
   }
 
@@ -58,18 +56,54 @@ class Editor extends React.Component {
     }
   }
 
+  handleClick = () => {
+    let currentEditor = Object.keys(window.CKEDITOR.instances)[0]
+    window.CKEDITOR.instances[currentEditor].destroy()
+    let pluginValue = this.setToolbarValue()
+    this.setState({
+      config: {
+        removePlugins: pluginValue
+      }}, function() {this.buildToolbar()})
+  }
+
+  setToolbarValue = () => {
+    return this.state.config.removePlugins === '' ? 'toolbar' : ''
+  }
+
+  buildToolbar = () => {
+    this.editorInstance = window.CKEDITOR.appendTo(
+      ReactDOM.findDOMNode(this),
+      this.state.config,
+      this.props.content
+    )
+  }
+
+  onBlur = () => {
+    console.log('l')
+  }
+
   render() {
-    return <div className={this.props.activeClass} />;
+    return(
+      <div className="editor">
+        <PlusIcon handleClick={this.handleClick}/>
+        <div className={this.props.activeClass}
+        ></div>
+      </div>
+    );
   }
 }
 
 Editor.defaultProps = {
   content: "",
-  config: {},
+  config: {
+    removePlugins: 'toolbar'
+  },
   isScriptLoaded: false,
   scriptUrl: defaultScriptUrl,
-  activeClass: "",
-  events: {}
+  activeClass: "composition-editor",
+  events: {
+            "blur": this.onBlur
+          }
 };
 
 Editor.propTypes = {
