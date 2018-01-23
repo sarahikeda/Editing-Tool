@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import PlusIcon from '../PlusIcon/PlusIcon';
 const loadScript = require('load-script');
 
-var defaultScriptUrl = "https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js";
+var defaultScriptUrl = "https://cdn.ckeditor.com/4.8.0/basic/ckeditor.js";
 
 class Editor extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Editor extends React.Component {
     //State initialization
     this.state = {
       isScriptLoaded: this.props.isScriptLoaded,
-      config: this.props.config,
+      config: this.props.removePlugins
     };
   }
 
@@ -42,12 +42,16 @@ class Editor extends React.Component {
       return;
     }
 
+    this.addPlugins()
     this.editorInstance = window.CKEDITOR.appendTo(
       ReactDOM.findDOMNode(this),
-      this.state.config,
-      this.props.content
+      {config: {
+        removePlugins: 'toolbar'
+      }},
+      this.props.content,
     );
-
+    console.log(this.editorInstance)
+    console.log('config', this.state.config)
     //Register listener for custom events if any
     for(var event in this.props.events){
       var eventHandler = this.props.events[event];
@@ -56,37 +60,45 @@ class Editor extends React.Component {
     }
   }
 
+  addPlugins = () => {
+    window.CKEDITOR.inline( 'editor1', {
+			// Allow some non-standard markup that we used in the introduction.
+			extraAllowedContent: 'a(documentation);abbr[title];code',
+			removePlugins: 'stylescombo',
+			extraPlugins: 'sourcedialog',
+			// Show toolbar on startup (optional).
+			startupFocus: true
+		});
+  }
+
   handleClick = () => {
     let currentEditor = Object.keys(window.CKEDITOR.instances)[0]
+    // destroy current editor to add new configuration
     window.CKEDITOR.instances[currentEditor].destroy()
-    let pluginValue = this.setToolbarValue()
-    this.setState({
-      config: {
-        removePlugins: pluginValue
-      }}, function() {this.buildToolbar()})
+    // let pluginValue = this.setToolbarValue()
+    // this.setState({
+    //   config: {
+    //     removePlugins: pluginValue
+    //   }}, function() {this.buildToolbar()})
   }
 
-  setToolbarValue = () => {
-    return this.state.config.removePlugins === '' ? 'toolbar' : ''
-  }
-
-  buildToolbar = () => {
-    this.editorInstance = window.CKEDITOR.appendTo(
-      ReactDOM.findDOMNode(this),
-      this.state.config,
-      this.props.content
-    )
-  }
-
-  onBlur = () => {
-    console.log('l')
-  }
+  // setToolbarValue = () => {
+  //   return this.state.config.removePlugins === '' ? 'toolbar' : ''
+  // }
+  //
+  // buildToolbar = () => {
+  //   this.editorInstance = window.CKEDITOR.appendTo(
+  //     ReactDOM.findDOMNode(this),
+  //     this.state.config,
+  //     this.props.content
+  //   )
+  // }
 
   render() {
     return(
-      <div className="editor">
+      <div>
         <PlusIcon handleClick={this.handleClick}/>
-        <div className={this.props.activeClass}
+        <div className="editor" id="introduction" contentEditable="true"
         ></div>
       </div>
     );
