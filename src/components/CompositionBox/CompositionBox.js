@@ -8,8 +8,6 @@ import Signature from '../Signature/Signature';
 class CompositionBox extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      documents: ['Ubers losses widen as softbank', 'American Air doesnt have', 'Ubers losses widen as softbank', 'American Air doesnt have']    }
   }
 
   render() {
@@ -17,7 +15,7 @@ class CompositionBox extends Component {
       <div className="composition-box">
         <Summary/>
         <Title/>
-        <Sandbox documents={this.state.documents}/>
+        <Sandbox/>
         <Tags/>
         <Signature/>
       </div>
