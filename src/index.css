@@ -1,0 +1,80 @@
+.App {
+  color: #7d7b7b; }
+
+.auto-save-text {
+  text-align: right;
+  margin-right: 200px;
+  font-size: 10px; }
+
+.navigation-bar.navbar.navbar-default {
+  background-color: #2E64AF;
+  height: 60px; }
+
+.navbar-brand.nav-img {
+  background-color: #7c7a7a;
+  height: 0px;
+  padding: 15px;
+  margin-top: 10px; }
+
+.template-articles {
+  padding: 15px; }
+
+.template-image {
+  background-color: #e4e4e4;
+  height: 50px;
+  width: 50px;
+  border: .5px solid #d0d0d0; }
+
+.dropdown-menu {
+  width: 300px; }
+
+.template-title {
+  color: #4da4ee;
+  font-size: 10px;
+  height: 40px; }
+
+.template-date {
+  font-size: 8px; }
+
+.composition-box {
+  border: 1px solid black;
+  height: 600px;
+  margin: 0 300px; }
+
+.summary {
+  margin: 10px 0 10px 10px; }
+
+.citi-logo {
+  width: 200px;
+  margin-left: -5px; }
+
+.section-explanation {
+  font-size: 10px; }
+
+.current-date {
+  color: black;
+  font-size: 11px;
+  font-weight: bold; }
+
+.title {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 40px; }
+
+.section-title {
+  font-size: 12px;
+  margin-left: 10px; }
+
+.plus-circle {
+  width: 25px;
+  position: absolute;
+  margin-left: -45px; }
+
+.tags {
+  margin-top: 100px;
+  margin-left: 15px; }
+
+.signature {
+  margin: 80px 0 0 15px; }
+  .signature p {
+    font-size: 10px; }
