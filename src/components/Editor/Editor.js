@@ -2,117 +2,53 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import PlusIcon from '../PlusIcon/PlusIcon';
-const loadScript = require('load-script');
-
-var defaultScriptUrl = "https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js";
+import CKEditor from "react-ckeditor-component";
 
 class Editor extends React.Component {
   constructor(props) {
     super(props);
-
-    //State initialization
+    this.updateContent = this.updateContent.bind(this);
     this.state = {
-      isScriptLoaded: this.props.isScriptLoaded,
-      config: this.props.config,
-    };
-  }
-
-  //load ckeditor script as soon as component mounts if not already loaded
-  componentDidMount() {
-    if(!this.props.isScriptLoaded){
-      loadScript(this.props.scriptUrl, this.onLoad);
-    }else{
-      this.onLoad();
+      content: 'content',
     }
   }
 
-  componentWillUnmount() {
-    this.unmounting = true;
-  }
-
-  onLoad = () => {
-    if (this.unmounting) return;
-
+  updateContent = (newContent) => {
     this.setState({
-      isScriptLoaded: true
-    });
-
-    if (!window.CKEDITOR) {
-      console.error("Editor not found");
-      return;
-    }
-
-    this.editorInstance = window.CKEDITOR.appendTo(
-      ReactDOM.findDOMNode(this),
-      this.state.config,
-      this.props.content
-    );
-
-    //Register listener for custom events if any
-    for(var event in this.props.events){
-      var eventHandler = this.props.events[event];
-
-      this.editorInstance.on(event, eventHandler);
-    }
+      content: newContent
+    })
   }
 
-  handleClick = () => {
-    let currentEditor = Object.keys(window.CKEDITOR.instances)[0]
-    window.CKEDITOR.instances[currentEditor].destroy()
-    let pluginValue = this.setToolbarValue()
+  onChange = (evt) => {
+    console.log("onChange fired with event info: ", evt);
+    var newContent = evt.editor.getData();
     this.setState({
-      config: {
-        removePlugins: pluginValue
-      }}, function() {this.buildToolbar()})
+      content: newContent
+    })
   }
 
-  setToolbarValue = () => {
-    return this.state.config.removePlugins === '' ? 'toolbar' : ''
+  onBlur = (evt) => {
+    console.log("onBlur event called with event info: ", evt);
   }
 
-  buildToolbar = () => {
-    this.editorInstance = window.CKEDITOR.appendTo(
-      ReactDOM.findDOMNode(this),
-      this.state.config,
-      this.props.content
-    )
-  }
-
-  onBlur = () => {
-    console.log('l')
+  afterPaste = (evt) => {
+    console.log("afterPaste event called with event info: ", evt);
   }
 
   render() {
-    return(
-      <div className="editor">
-        <PlusIcon handleClick={this.handleClick}/>
-        <div className={this.props.activeClass}
-        ></div>
-      </div>
-    );
+    return (
+      <CKEditor
+        activeClass="editor1"
+        content={this.state.content}
+        scriptUrl='../../ckeditor/ckeditor.js'
+        events={{
+          "blur": this.onBlur,
+          "afterPaste": this.afterPaste,
+          "change": this.onChange
+        }}
+      />
+    )
   }
-}
+ }
 
-Editor.defaultProps = {
-  content: "",
-  config: {
-    removePlugins: 'toolbar'
-  },
-  isScriptLoaded: false,
-  scriptUrl: defaultScriptUrl,
-  activeClass: "composition-editor",
-  events: {
-            "blur": this.onBlur
-          }
-};
-
-Editor.propTypes = {
-  content: PropTypes.any,
-  config: PropTypes.object,
-  isScriptLoaded: PropTypes.bool,
-  scriptUrl: PropTypes.string,
-  activeClass: PropTypes.string,
-  events: PropTypes.object
-};
-
-export default Editor;
+ export default Editor;

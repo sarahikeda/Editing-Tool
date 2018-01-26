@@ -25,25 +25,6 @@ class Sandbox extends Component {
     })
   }
 
-  // changeToolBar = () => {
-  //   this.setState({
-  //     showIcons: !this.state.showIcons,
-  //   }, function() {
-  //     this.changeIcons();
-  //   })
-  // }
-
-  changeIcons = () => {
-    if (this.state.showIcons) {
-      this.setState({
-        icons: 'sourcearea, format,stylescombo,table,blockquote, elementspath,save,flash,smiley,specialchar,pastefromword, pastetext,tabletools,find,pagebreak,templates,about,maximize,showblocks,newpage,language, undo, horizontalrule, removeformat'
-      })
-    } else {
-      this.setState({
-        icons: 'sourcearea,format,stylescombo,table,blockquote, elementspath,save,flash,smiley,specialchar,pastefromword, pastetext,tabletools,find,pagebreak,templates,about,maximize,showblocks,newpage,language, undo, horizontalrule, removeformat, clipboard, toolbar'
-      })
-    }
-  }
 
   render() {
     return (

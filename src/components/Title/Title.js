@@ -4,7 +4,7 @@ class Title extends Component {
   render() {
     return (
       <div className="title">
-        <p className="section-title">Quick Links:</p>
+        <p className="section-title">QUICK LINKS</p>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CitiLogo from '../../images/citilogo.png'
 
 class Summary extends Component {
   constructor(props) {
@@ -23,8 +22,6 @@ class Summary extends Component {
   render() {
     return (
       <div className="summary">
-        <img className="citi-logo" src={CitiLogo} alt="citi-logo" />
-        <p className="current-date">{this.state.currentDate}</p>
       </div>
     );
   }
