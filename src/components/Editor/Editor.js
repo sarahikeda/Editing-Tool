@@ -63,7 +63,11 @@ class CKEditor extends React.Component {
   }
 
   render() {
-    return <div className={this.props.activeClass} />;
+    return (
+      <div>
+        <h4>{this.props.title}</h4>
+      </div>
+    );
   }
 }
 
@@ -73,7 +77,7 @@ CKEditor.defaultProps = {
     removePlugins: ''
   },
   isScriptLoaded: false,
-  scriptUrl: 'http://sarahikeda.github.io/ckeditor.js',
+  scriptUrl: 'http://sarahikeda.github.io/ckeditor/ckeditor.js',
   activeClass: "",
   events: {}
 };

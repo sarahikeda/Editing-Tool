@@ -6,9 +6,6 @@ class NavigationBar extends Component {
     return (
       <Navbar className="navigation-bar">
        <Navbar.Header>
-         <Navbar.Brand>
-           <div className="nav-img"></div>
-         </Navbar.Brand>
        </Navbar.Header>
     </Navbar>
     );

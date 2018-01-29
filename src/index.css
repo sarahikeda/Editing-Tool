@@ -7,8 +7,8 @@
   font-size: 10px; }
 
 .navigation-bar.navbar.navbar-default {
-  background-color: #e7e6e6;
-  height: 60px; }
+  background-color: #2E64AF;
+  height: 40px; }
 
 .navbar-brand.nav-img {
   background-color: #7c7a7a;
@@ -55,9 +55,8 @@
   font-size: 8px; }
 
 .composition-box {
-  border: 1px solid black;
-  height: 600px;
-  margin: 0 300px; }
+  border-left: 1px solid #D8D8D8;
+  height: 600px; }
 
 .summary {
   margin: 10px 0 10px 10px; }
@@ -75,8 +74,6 @@
   font-weight: bold; }
 
 .title {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
   margin-bottom: 40px; }
 
 .section-title {

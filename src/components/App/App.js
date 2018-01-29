@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import CompositionBox from '../CompositionBox/CompositionBox';
+import ResearchContent from '../ResearchContent/ResearchContent';
 
 class App extends Component {
   render() {
@@ -9,8 +10,12 @@ class App extends Component {
         <header className="App-header">
           <NavigationBar/>
         </header>
-        <p className="auto-save-text">Your composition is auto saved</p>
-        <CompositionBox/>
+        <div className="container">
+          <div className="row">
+            <CompositionBox/>
+            <ResearchContent/>
+          </div>
+        </div>
       </div>
     );
   }
