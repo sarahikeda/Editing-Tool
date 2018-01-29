@@ -1,54 +1,90 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import PlusIcon from '../PlusIcon/PlusIcon';
-import CKEditor from "react-ckeditor-component";
+const loadScript = require('load-script');
 
-class Editor extends React.Component {
+/**
+ * @author codeslayer1
+ * @description CKEditor component to render a CKEditor textarea with defined configs and all CKEditor events handler
+ */
+class CKEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.updateContent = this.updateContent.bind(this);
+
+    //Bindings
+    this.onLoad = this.onLoad.bind(this);
+
+    //State initialization
     this.state = {
-      content: 'content',
+      isScriptLoaded: this.props.isScriptLoaded,
+      config: this.props.config
+    };
+  }
+
+  //load ckeditor script as soon as component mounts if not already loaded
+  componentDidMount() {
+    if(!this.props.isScriptLoaded){
+      loadScript(this.props.scriptUrl, this.onLoad);
+    }else{
+      this.onLoad();
     }
   }
 
-  updateContent = (newContent) => {
+  componentWillUnmount() {
+    this.unmounting = true;
+  }
+
+  onLoad() {
+    if (this.unmounting) return;
+
     this.setState({
-      content: newContent
-    })
-  }
+      isScriptLoaded: true
+    });
 
-  onChange = (evt) => {
-    console.log("onChange fired with event info: ", evt);
-    var newContent = evt.editor.getData();
-    this.setState({
-      content: newContent
-    })
-  }
+    if (!window.CKEDITOR) {
+      console.error("CKEditor not found");
+      return;
+    }
 
-  onBlur = (evt) => {
-    console.log("onBlur event called with event info: ", evt);
-  }
+    this.editorInstance = window.CKEDITOR.appendTo(
+      ReactDOM.findDOMNode(this),
+      {config:
+        {removePlugins: 'link, basicstyles, list, indent, indentblock, indentlist,about'}
+      },
+      this.props.content
+    );
 
-  afterPaste = (evt) => {
-    console.log("afterPaste event called with event info: ", evt);
+    //Register listener for custom events if any
+    for(var event in this.props.events){
+      var eventHandler = this.props.events[event];
+
+      this.editorInstance.on(event, eventHandler);
+    }
   }
 
   render() {
-    return (
-      <CKEditor
-        activeClass="editor1"
-        content={this.state.content}
-        scriptUrl='../../ckeditor/ckeditor.js'
-        events={{
-          "blur": this.onBlur,
-          "afterPaste": this.afterPaste,
-          "change": this.onChange
-        }}
-      />
-    )
+    return <div className={this.props.activeClass} />;
   }
- }
+}
 
- export default Editor;
+CKEditor.defaultProps = {
+  content: "",
+  config: {
+    removePlugins: ''
+  },
+  isScriptLoaded: false,
+  scriptUrl: 'http://sarahikeda.github.io/ckeditor.js',
+  activeClass: "",
+  events: {}
+};
+
+CKEditor.propTypes = {
+  content: PropTypes.any,
+  config: PropTypes.object,
+  isScriptLoaded: PropTypes.bool,
+  scriptUrl: PropTypes.string,
+  activeClass: PropTypes.string,
+  events: PropTypes.object
+};
+
+export default CKEditor;
