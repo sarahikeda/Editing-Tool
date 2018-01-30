@@ -1,7 +1,10 @@
 .editor-title {
   color: #1A3E6F; }
 
-.cke_1_top {
+.cke_top {
+  border: none !important; }
+
+.cke_toolbox {
   display: none; }
 
 .cke_editable {
