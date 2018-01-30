@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import CompositionHeader from '../CompositionHeader/CompositionHeader';
 import CompositionBox from '../CompositionBox/CompositionBox';
 import ResearchContent from '../ResearchContent/ResearchContent';
 

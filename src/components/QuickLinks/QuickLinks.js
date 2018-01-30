@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Title extends Component {
+class QuickLinks extends Component {
   render() {
     return (
-      <div className="title">
+      <div className="quick-links">
         <p className="section-title">QUICK LINKS</p>
       </div>
     );
   }
 }
 
-export default Title;
+export default QuickLinks;
