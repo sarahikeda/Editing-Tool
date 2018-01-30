@@ -9,12 +9,12 @@ class CompositionBox extends Component {
 
   render() {
     return (
-      <div className="composition-box col-xs-6 col-md-6 col-lg-6">
-        <Summary/>
+      <div className="composition-box col-xs-6">
         <Title/>
         <Editor title="Focus Items"/>
-        <Tags/>
         <Signature/>
+        <Summary/>
+        <Tags/>
       </div>
     );
   }

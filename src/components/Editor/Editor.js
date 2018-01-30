@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
+import PlusIcon from '../PlusIcon/PlusIcon';
 const loadScript = require('load-script');
 
 /**
@@ -49,7 +50,7 @@ class CKEditor extends React.Component {
     this.editorInstance = window.CKEDITOR.appendTo(
       ReactDOM.findDOMNode(this),
       {config:
-        {removePlugins: 'link, basicstyles, list, indent, indentblock, indentlist,about'}
+        {removePlugins: 'toolbar'}
       },
       this.props.content
     );
@@ -65,7 +66,8 @@ class CKEditor extends React.Component {
   render() {
     return (
       <div>
-        <h4>{this.props.title}</h4>
+        <PlusIcon/>
+        <h5 className="editor-title">{this.props.title}</h5>
       </div>
     );
   }
@@ -73,9 +75,7 @@ class CKEditor extends React.Component {
 
 CKEditor.defaultProps = {
   content: "",
-  config: {
-    removePlugins: ''
-  },
+  config: '',
   isScriptLoaded: false,
   scriptUrl: 'http://sarahikeda.github.io/ckeditor/ckeditor.js',
   activeClass: "",
