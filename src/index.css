@@ -11,29 +11,12 @@
   background-color: #2E64AF;
   height: 40px; }
 
+
 .navbar-brand.nav-img {
   background-color: #7c7a7a;
   height: 0px;
   padding: 15px;
   margin-top: 10px; }
-
-.delete-link, #draft-options {
-  border-right: 1px solid #bdbdbd; }
-
-.publish-button.btn.btn-default {
-  border-radius: 0px;
-  border-color: #03a9f4;
-  color: #03a9f4;
-  background-color: #fff8dc00;
-  font-size: 11px;
-  padding: 10px;
-  margin-top: 8px;
-  text-align: right;
-  margin-left: 250px; }
-
-.fa-user-plus {
-  color: black;
-  padding-right: 5px; }
 
 .template-articles {
   padding: 15px; }

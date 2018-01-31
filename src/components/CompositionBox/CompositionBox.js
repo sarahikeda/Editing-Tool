@@ -7,7 +7,6 @@ import Tags from '../Tags/Tags';
 import Signature from '../Signature/Signature';
 
 class CompositionBox extends Component {
-
   render() {
     return (
       <div className="composition-box col-xs-6">
