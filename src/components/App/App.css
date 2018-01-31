@@ -1,5 +1,6 @@
 .App {
-  color: #7d7b7b; }
+  background-color: #e6e6e5;
+  font-family: 'Roboto', sans-serif; }
 
 .auto-save-text {
   text-align: right;

@@ -5,9 +5,8 @@ class Signature extends Component {
     return (
       <div className="signature">
         <p>John Doe</p>
-        <p>Sector Specialist</p>
-        <p>(347) 666-6666</p>
-        <p>john.doe@citivelocity.com</p>
+        <p>Technology Sector Specialist</p>
+        <a>(347) 666-6666 john.doe@citivelocity.com</a>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 .App {
-  color: #7d7b7b; }
+  background-color: #e6e6e5;
+  font-family: 'Roboto', sans-serif; }
 
 .auto-save-text {
   text-align: right;
@@ -8,7 +9,8 @@
 
 .navigation-bar.navbar.navbar-default {
   background-color: #2E64AF;
-  height: 60px; }
+  height: 40px; }
+
 
 .navbar-brand.nav-img {
   background-color: #7c7a7a;
@@ -36,45 +38,82 @@
 .template-date {
   font-size: 8px; }
 
-.composition-box {
-  border: 1px solid black;
-  height: 600px;
-  margin: 0 300px; }
+.col-xs-12.composition-header {
+  height: 40px;
+  margin-bottom: 10px;
+  background-color: #2f64af;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  padding-left: 0px; }
 
-.summary {
-  margin: 10px 0 10px 10px; }
+.col-xs-1.logo {
+  background-color: #1A3E6F;
+  height: 40px; }
+
+.composition-title {
+  padding: 10px 0 0 5px; }
+
+.content {
+  border-left: 1px solid #D8D8D8;
+  padding: 10px;
+  background-color: #EBEFF5;
+  margin: 50px 0 100px 0; }
+
+.plus-circle {
+  width: 25px;
+  position: absolute;
+  margin-left: -55px;
+  margin-top: 50px; }
+
+.editor-title {
+  color: #1A3E6F; }
+
+.cke_top {
+  border: none !important; }
+
+.cke_toolbox {
+  display: none; }
+
+.cke_editable {
+  background-color: #EBEFF5; }
+
+.cke_floatingtools {
+  background-color: #2E64AF !important; }
+
+.cke_bottom {
+  display: none !important; }
 
 .citi-logo {
   width: 200px;
   margin-left: -5px; }
 
-.section-explanation {
-  font-size: 10px; }
-
-.current-date {
-  color: black;
-  font-size: 11px;
-  font-weight: bold; }
-
-.title {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  margin-bottom: 40px; }
-
-.section-title {
-  font-size: 12px;
-  margin-left: 10px; }
-
-.plus-circle {
-  width: 25px;
-  position: absolute;
-  margin-left: -45px; }
-
 .tags {
-  margin-top: 100px;
-  margin-left: 15px; }
+  margin-top: 100px; }
 
 .signature {
-  margin: 80px 0 0 15px; }
-  .signature p {
+  border-top: 1px solid #D8D8D8;
+  margin-top: 10px;
+  padding-top: 25px; }
+  .signature p, .signature a {
     font-size: 10px; }
+
+.research-title {
+  color: #1A3E6F;
+  opacity: 0.7; }
+
+#imaginary_container {
+  margin-top: 20%;
+  /* Don't copy this */ }
+
+.stylish-input-group .input-group-addon {
+  background: white !important; }
+
+.stylish-input-group .form-control {
+  border-right: 0;
+  box-shadow: 0 0 0;
+  border-color: #ccc; }
+
+.stylish-input-group button {
+  border: 0;
+  background: transparent; }
