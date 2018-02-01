@@ -6,3 +6,7 @@
   text-align: right;
   margin-right: 200px;
   font-size: 10px; }
+
+.initial-recent-section {
+  display: none !important;
+}
