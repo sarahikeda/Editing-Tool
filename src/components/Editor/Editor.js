@@ -66,7 +66,6 @@ class CKEditor extends React.Component {
   render() {
     return (
       <div>
-        <PlusIcon/>
         <h5 className="editor-title">{this.props.title}</h5>
       </div>
     );
