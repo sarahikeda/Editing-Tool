@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import PlusIcon from '../PlusIcon/PlusIcon';
 const loadScript = require('load-script');
 
 /**
@@ -74,7 +73,7 @@ class CKEditor extends React.Component {
 
 CKEditor.defaultProps = {
   content: "",
-  config: '',
+  config: {},
   isScriptLoaded: false,
   scriptUrl: 'http://sarahikeda.github.io/ckeditor/ckeditor.js',
   activeClass: "",
