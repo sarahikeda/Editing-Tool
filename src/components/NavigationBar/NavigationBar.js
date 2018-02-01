@@ -83,7 +83,7 @@ export default class NavigationBar extends Component {
                   <DropdownItem>
                     Option 2
                   </DropdownItem> */}
-                  <div className="d-flex justify-content-start align-items-start">
+                  <div className="d-flex justify-content-around">
                       <DropdownItem><div className="item"></div></DropdownItem>
                       <DropdownItem><div className="item"></div></DropdownItem>
                       <DropdownItem><div className="item"></div></DropdownItem>
