@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^1.0.0-alpha.2",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0",
     "create-react-class": "^15.6.2",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
     "node-sass-chokidar": "0.0.3",
+    "popper": "^1.0.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",
     "react-ckeditor": "0.0.1",
@@ -16,7 +18,8 @@
     "react-dragula": "^1.1.17",
     "react-fontawesome": "^1.6.1",
     "react-froala-wysiwyg": "^2.7.3",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "reactstrap": "^5.0.0-beta"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
