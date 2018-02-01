@@ -724,9 +724,8 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   background-color: #EBEFF5;
   margin: 50px 0 100px 0; }
 
-.citi-logo {
-  width: 200px;
-  margin-left: -5px; }
+.summary {
+  margin-top: 50px; }
 
 .tags {
   margin-top: 100px; }
