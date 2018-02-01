@@ -12,8 +12,19 @@
 }
 
 .navbar {
-    padding: 0.7rem 1rem 0rem;
+	padding: 0rem 0.3rem 0rem;
 }
+
+select {
+	height: 34px !important;
+	padding: 5px !important;
+	border-radius: 1px !important;
+	-webkit-appearance: none !important;
+	-webkit-border-radius: 0px !important;
+	background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='16' height='16' viewBox='0 0 24 24'><path fill='#444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>") !important;
+	background-position: 97% 50% !important;
+	background-repeat: no-repeat !important;
+  }
 
 .spacer{
 	/* Saum ignore this style its just so i can be anal about my styles and make sure it all looks right */
@@ -174,7 +185,7 @@ border-left:1px solid #7795BC;
 border-right:none;
 border-top:none;
 border-bottom:none;
-border-radius:0px 2px 2px 0px;
+border-radius:2px;
 height:34px;
 }
 
@@ -235,7 +246,7 @@ font-family:'Interstate-LightItalic', Helvetica, Arial;
 font-size:16px;
 color:white;
 height:42px;
-background:#1A3E6F;	
+/*background:#1A3E6F;*/	
 padding:10px 18px 10px 11px;
 }
 
@@ -596,11 +607,11 @@ color:#1A3E6F;
 margin-top:20px;
 }
 
-select{
+/* select{
 	min-width:300px;	
 	min-height:100px;
 	margin-right:20px;
-}
+} */
 select:focus {
 	outline: 1px dashed #2e64af
 }

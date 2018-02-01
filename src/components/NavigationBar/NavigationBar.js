@@ -16,6 +16,8 @@
 
 
 import React, { Component } from 'react';
+import Logo from '../../images/logo.png';
+
 import {
   Collapse,
   Navbar,
@@ -44,17 +46,18 @@ export default class NavigationBar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="primary" dark expand="lg" className="mb-3">
-          <NavbarBrand href="/">Citi</NavbarBrand>
+        <Navbar color="primary" dark expand="md">
+          
           <NavbarToggler onClick={this.toggle} />
+          
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="mr-auto" navbar>
 
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   New From Template
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu>
                   <DropdownItem>
                     Option 1
                   </DropdownItem>
@@ -72,7 +75,7 @@ export default class NavigationBar extends Component {
                 <DropdownToggle nav caret>
                   Open Draft
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu>
                   <DropdownItem>
                     Option 1
                   </DropdownItem>
@@ -84,6 +87,12 @@ export default class NavigationBar extends Component {
 
             </Nav>
           </Collapse>
+
+
+          <NavbarBrand href="/">
+            <img className="logo" alt="Citi Logo" src={Logo} />
+          </NavbarBrand>
+
         </Navbar>
       </div>
     );

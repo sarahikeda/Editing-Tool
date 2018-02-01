@@ -1,14 +1,18 @@
 .App {
-  background-color: #e6e6e5;
+  /* background-color: #e6e6e5; */
   font-family: 'Roboto', sans-serif; }
   
-  body{
-    overflow: hidden;
-    font-family: 'Interstate-Light', Helvetica, Arial;
-    color:#1A3E6F;
-    font-size: 0.8rem;
-  }
+body{
+  overflow: hidden;
+  font-family: 'Interstate-Light', Helvetica, Arial;
+  color:#1A3E6F;
+  font-size: 0.8rem;
+  background-color: #EEEFF0;
+}
 
+.logo {
+  margin-top: -7px;
+}
 .auto-save-text {
   text-align: right;
   margin-right: 200px;

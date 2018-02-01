@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import PublishBar from '../PublishBar/PublishBar';
 import CompositionBox from '../CompositionBox/CompositionBox';
 import ResearchContent from '../ResearchContent/ResearchContent';
 import classes from './App.css';
@@ -11,6 +12,7 @@ class App extends Component {
       <div className="{classes.App}">
         <header className="{classes.App-header}">
           <NavigationBar/>
+          <PublishBar/>
         </header>
         <Container fluid>
           <Row>
