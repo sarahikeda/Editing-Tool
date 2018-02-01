@@ -36,3 +36,8 @@
   margin:5px;
   padding: 5px;
 }
+
+.item-container {
+  display: inline-block;
+  width: auto;
+}

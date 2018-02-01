@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import './CompositionHeader.css';
+
 
 class CompositionHeader extends Component {
 
   render() {
     return (
-      <div className="composition-header col-xs-12">
-        <div className="col-xs-1 logo"></div>
-        <p className="composition-title col-xs-8">Global Technology Daily</p>
+      <div className="composition-header">
+        <div className="header-container"></div>
+        <p className="composition-title">Global Technology Daily</p>
       </div>
     );
   }
