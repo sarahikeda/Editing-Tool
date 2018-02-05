@@ -1,0 +1,9 @@
+.Post {
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  padding: 15px;
+  border-bottom: 1px solid #C8C8C8;
+  margin-bottom: 10px; }
+  .Post h1 {
+    color: #2E64AF; }

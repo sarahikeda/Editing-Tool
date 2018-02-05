@@ -3,6 +3,7 @@ body {
   overflow: hidden;
   font-family: 'Interstate-Light', Helvetica, Arial;
   color: #1A3E6F;
+  background: #EEEFF0;
   font-size: 0.8rem; }
 
 .loader {
@@ -728,18 +729,14 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .template-select {
   width: 150px !important; }
 
-.col-xs-12.composition-header {
+.composition-header {
   height: 40px;
-  margin-bottom: 10px;
+  margin-top: 10px;
   background-color: #2f64af;
   border-radius: 2px;
   color: white;
   font-size: 14px;
   padding-left: 0px; }
-
-.col-xs-1.logo {
-  background-color: #1A3E6F;
-  height: 40px; }
 
 .composition-title {
   padding: 10px 0 0 5px; }
@@ -748,7 +745,10 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   border-left: 1px solid #D8D8D8;
   padding: 10px;
   background-color: #EBEFF5;
-  margin: 50px 0 100px 0; }
+  margin: 10px 0 10px 0; }
+
+.composition-box {
+  background-color: #FFF; }
 
 .summary {
   margin-top: 50px; }
@@ -782,3 +782,16 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .stylish-input-group button {
   border: 0;
   background: transparent; }
+
+.form-control.search-input {
+  background-color: #fff; }
+
+.Post {
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  padding: 15px;
+  border-bottom: 1px solid #C8C8C8;
+  margin-bottom: 10px; }
+  .Post h1 {
+    color: #2E64AF; }

@@ -14,7 +14,7 @@ class App extends Component {
           <NavigationBar/>
           <PublishBar/>
         </header>
-        <Container fluid>
+        <Container>
           <Row>
 
             <Col>

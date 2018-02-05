@@ -17,3 +17,10 @@
 .stylish-input-group button {
   border: 0;
   background: transparent; }
+
+.form-control.search-input {
+  background-color: #fff; }
+
+  .Posts {
+    margin-top:5px;
+  }
