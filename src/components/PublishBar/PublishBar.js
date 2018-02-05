@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import './PublishBar.css';
 
 export default class PublishBar extends Component {
     render() {

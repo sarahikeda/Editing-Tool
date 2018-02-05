@@ -1,20 +1,14 @@
 /* CSS Document */
+body {
+  overflow: hidden;
+  font-family: 'Interstate-Light', Helvetica, Arial;
+  color: #1A3E6F;
+  font-size: 0.8rem; }
+
 .loader {
   left: 50%;
   position: fixed;
   top: 35%; }
-
-body{
-  overflow: hidden;
-  font-family: 'Interstate-Light', Helvetica, Arial;
-  color:#1A3E6F;
-  font-size: 0.8rem;
-  background-color: #EEEFF0;
-}
-
-.logo {
-  margin-top: -7px;
-}
 
 .bg-primary {
   background-color: #333A40 !important; }
@@ -119,15 +113,15 @@ h1 {
 button.btn > .caret {
   margin-left: 20px; }
 
+.dropdown-item.active, .dropdown-item:active {
+  color: #1c9ac3;
+  background-color: rgba(255, 255, 255, 0.56); }
+
 .dropdown-menu {
   font-size: 0.8rem;
   background-color: #ebeff5;
   border-radius: 0.05rem;
   padding: 0.5rem 0.5rem; }
-
-.dropdown-item.active, .dropdown-item:active {
-  color: #1c9ac3;
-  background-color: rgba(255, 255, 255, 0.56); }
 
 ul.dropdown-menu {
   background: #2E64AF;
@@ -155,7 +149,7 @@ ul.dropdown-menu > li > a:hover {
   padding: 0px; }
 
 /*
-.dropdown-item:focus,
+.dropdown-item:focus, 
 .dropdown-item:hover {
 	background-color: rgba(247, 247, 249, 0.3) !important;
 	border-radius: 2px;
@@ -509,9 +503,14 @@ h4 {
   border-bottom: 1px solid #C8C8C8;
   padding-bottom: 20px; }
 
+label {
+  font-family: 'Interstate-Light', Helvetica, Arial;
+  font-size: 12px;
+  color: #1A3E6F;
+  margin-top: 0; }
 
 /* select{
-	min-width:300px;
+	min-width:300px;	
 	min-height:100px;
 	margin-right:20px;
 } */
@@ -698,9 +697,6 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   width: 50px;
   border: .5px solid #d0d0d0; }
 
-.dropdown-menu {
-  width: 300px; }
-
 .template-title {
   color: #4da4ee;
   font-size: 10px;
@@ -708,6 +704,29 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 
 .template-date {
   font-size: 8px; }
+
+.template-container {
+  width: 240px; }
+
+.item {
+  width: 50px;
+  height: 50px;
+  background-color: #072866;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 5px; }
+
+.item-container {
+  display: inline-block;
+  width: auto; }
+
+.Base {
+  background-color: #fff;
+  height: 45px;
+  padding: 0rem 0.3rem 0rem; }
+
+.template-select {
+  width: 150px !important; }
 
 .col-xs-12.composition-header {
   height: 40px;
@@ -724,6 +743,12 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 
 .composition-title {
   padding: 10px 0 0 5px; }
+
+.content {
+  border-left: 1px solid #D8D8D8;
+  padding: 10px;
+  background-color: #EBEFF5;
+  margin: 50px 0 100px 0; }
 
 .summary {
   margin-top: 50px; }

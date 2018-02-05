@@ -17,7 +17,6 @@
 
 import React, { Component } from 'react';
 import Logo from '../../images/logo.png';
-import './NavigationBar.css';
 
 import {
   Collapse,
@@ -77,13 +76,7 @@ export default class NavigationBar extends Component {
                   Open Draft
                 </DropdownToggle>
                 <DropdownMenu>
-                  {/* <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem> */}
-                    <div className="d-flex flex-wrap justify-content-start">
+                    <div className="d-flex flex-wrap justify-content-start template-container">
                       <DropdownItem className="item-container"><div className="item"></div></DropdownItem>
                       <DropdownItem className="item-container"><div className="item"></div></DropdownItem>
                       <DropdownItem className="item-container"><div className="item"></div></DropdownItem>

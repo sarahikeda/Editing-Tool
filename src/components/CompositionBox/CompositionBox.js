@@ -6,7 +6,6 @@ import Editor from '../Editor/Editor';
 import Summary from '../Summary/Summary';
 import Tags from '../Tags/Tags';
 import Signature from '../Signature/Signature';
-import './CompositionBox.css';
 
 class CompositionBox extends Component {
   render() {

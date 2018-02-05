@@ -9,7 +9,7 @@ import classes from './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="{classes.App}">
+      <div className={classes.App}>
         <header className="{classes.App-header}">
           <NavigationBar/>
           <PublishBar/>
