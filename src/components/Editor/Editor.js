@@ -3,10 +3,6 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 const loadScript = require('load-script');
 
-/**
- * @author codeslayer1
- * @description CKEditor component to render a CKEditor textarea with defined configs and all CKEditor events handler
- */
 class CKEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +13,8 @@ class CKEditor extends React.Component {
     //State initialization
     this.state = {
       isScriptLoaded: this.props.isScriptLoaded,
-      config: this.props.config
+      config: this.props.config,
+      anchors: ''
     };
   }
 
@@ -34,7 +31,19 @@ class CKEditor extends React.Component {
     this.unmounting = true;
   }
 
-  onLoad() {
+  getEditorContent = () =>  {
+    var editorData = window.CKEDITOR.instances["editor1"].getData()
+    var regExp = /<h1>(.*)<\/h1>/;
+    return regExp.exec(editorData) ? regExp.exec(editorData)[1] : '';
+  }
+
+  setAnchors = (match) => {
+    this.setState({
+      anchors: match
+    });
+  }
+
+  onLoad = () => {
     if (this.unmounting) return;
 
     this.setState({
@@ -54,13 +63,12 @@ class CKEditor extends React.Component {
       this.props.content
     );
 
-    //Register listener for custom events if any
-    for(var event in this.props.events){
-      var eventHandler = this.props.events[event];
-
-      this.editorInstance.on(event, eventHandler);
-    }
+    this.editorInstance.on('change', () => {
+      var match = this.getEditorContent()
+      this.setAnchors(match)
+    });
   }
+
 
   render() {
     return (
@@ -77,7 +85,7 @@ CKEditor.defaultProps = {
   isScriptLoaded: false,
   scriptUrl: 'http://sarahikeda.github.io/ckeditor/ckeditor.js',
   activeClass: "",
-  events: {}
+  events:{}
 };
 
 CKEditor.propTypes = {
