@@ -18,9 +18,9 @@ class CompositionBox extends Component {
               <QuickLinks/>
               <Editor title="Focus Items"/>
               <Signature/>
-              <Summary/>
-              <Tags/>
             </div>
+            <Summary/>
+            <Tags/>
           </Col>
         </Row>
       </Container>

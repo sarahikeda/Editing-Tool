@@ -751,17 +751,29 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   background-color: #FFF; }
 
 .summary {
-  margin-top: 50px; }
+  margin-top: 10px;
+  background-color: white;
+  height: 100px; }
+
+.section-title {
+  font-size: 14px; }
+
+.section-description {
+  color: #1A3E6F;
+  opacity: 0.5;
+  font-size: 12px; }
 
 .tags {
-  margin-top: 100px; }
+  margin-top: 10px;
+  margin-bottom: 20px; }
 
 .signature {
   border-top: 1px solid #D8D8D8;
   margin-top: 10px;
   padding-top: 25px; }
   .signature p, .signature a {
-    font-size: 10px; }
+    font-size: 10px;
+    margin-bottom: 0; }
 
 .research-title {
   color: #1A3E6F;

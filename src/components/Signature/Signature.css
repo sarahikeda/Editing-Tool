@@ -3,4 +3,5 @@
   margin-top: 10px;
   padding-top: 25px; }
   .signature p, .signature a {
-    font-size: 10px; }
+    font-size: 10px;
+    margin-bottom: 0; }
