@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Tags extends Component {
   render() {
     return (
-      <div className="tags">
-        <h5>Tags</h5>
+      <div className="tags content">
+        <p className="section-title">Tags</p>
       </div>
     );
   }
