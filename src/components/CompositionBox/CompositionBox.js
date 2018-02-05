@@ -19,8 +19,8 @@ class CompositionBox extends Component {
               <Editor title="Focus Items"/>
               <Signature/>
             </div>
-              <Summary/>
-              <Tags/>
+            <Summary/>
+            <Tags/>
           </Col>
         </Row>
       </Container>
