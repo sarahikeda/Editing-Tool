@@ -13,17 +13,10 @@ class ResearchContent extends Component {
 
   getPosts = event => {
     if (event.charCode === 13) {
-      event.preventDefault();  
-      axios.get("https://jsonplaceholder.typicode.com/posts")
+      event.preventDefault();
+      axios.get("https://my.api.mockaroo.com/posts.json?key=3dfc1d20")
           .then( response => {
-            const posts = response.data.slice(0, 4);
-            const updatedPosts = posts.map(post => {
-              return {
-                ...post,
-                author: "Frank Goodwill"
-              }
-            })
-            this.setState({posts: updatedPosts})
+            this.setState({posts: response.data})
           }
       )
     }
@@ -31,17 +24,19 @@ class ResearchContent extends Component {
 
   render() {
     const posts = this.state.posts.map(post => {
-      return <Post key={post.id} title={post.title} body={post.body} author={post.author}/>;
+      return <Post key={post.id} title={post.title} body={post.body} author={post.author} date={post.date} id={post.id}/>;
     })
     return (
       <div className="research-content">
-        <h5 className="research-title">RESEARCH CONTENT</h5>
-          <div className="input-group stylish-input-group">
+        <h5 className="research-head-title">RESEARCH CONTENT</h5>
+          <div className="input-group stylish-input-group mb-3">
             <input type="text" className="form-control search-input has-search" placeholder="Search" onKeyPress={this.getPosts}></input>
           </div>
-          <section className="Posts">
-            {posts}
-          </section>
+          <div className="Posts">
+            <section>
+              {posts}
+            </section>
+          </div>
       </div>
     );
   }

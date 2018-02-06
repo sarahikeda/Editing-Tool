@@ -1,4 +1,9 @@
-.research-title {
+.Posts {
+    max-height: calc(100vh - 13rem);
+    overflow: auto;
+}
+
+.research-head-title {
   color: #1A3E6F;
   opacity: 0.7;
 }

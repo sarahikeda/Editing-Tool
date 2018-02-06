@@ -1,9 +1,53 @@
 .Post {
-  font-size: 16px;
   box-sizing: border-box;
-  margin-top: 5px;
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid #C8C8C8;
-  margin-bottom: 10px; }
+  cursor: pointer; }
   .Post h1 {
     color: #2E64AF; }
+  .Post:hover {
+    background-color: #FFF; }
+  .Post:nth-last-child(1) {
+    border-bottom: 1px solid transparent; }
+
+.display-date {
+  font-weight: lighter;
+  font-size: 11px;
+  color: #646464; }
+
+.research-author {
+  color: #646464;
+  font-size: 11px;
+  text-transform: uppercase; }
+
+.research-title {
+  font-size: 16px;
+  color: #2E64AF; }
+
+.research-body {
+  font-size: 14px;
+  color: #646464; }
+
+.add-n-cross {
+  padding: 6px 6px;
+  background-color: #1A3E6F;
+  color: #fff;
+  border-radius: 100%;
+  font-size: 13px;
+  line-height: 0.4rem;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  transition: 0.3s ease-out; }
+  .add-n-cross:hover {
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    transform: rotateZ(90deg); }
+
+.fa-times-circle {
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  transition: 0.3s ease-out; }
+  .fa-times-circle:hover {
+    -webkit-transform: rotateZ(45deg);
+    -moz-transform: rotateZ(45deg);
+    transform: rotateZ(45deg); }
