@@ -5,7 +5,7 @@
   cursor: pointer; }
   .Post h1 {
     color: #2E64AF; }
-  .Post:hover {
+  .Post:hover, .Post :focus, .Post :active {
     background-color: #FFF; }
   .Post:nth-last-child(1) {
     border-bottom: 1px solid transparent; }

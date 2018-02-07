@@ -58,6 +58,10 @@ button[disabled]:hover {
   color: #1A3E6F;
   padding: 10px;
   border: none; }
+  .btn.btn-xs {
+    height: 25px;
+    min-width: 30px;
+    padding: 4px; }
 
 .btn:hover,
 .btn-ico:hover {
@@ -670,6 +674,19 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .error {
   color: red; }
 
+.popover-inner > .popover-header {
+  background-color: #2f63af;
+  border-bottom: 1px solid #2f63af; }
+
+.bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
+  border-bottom: 1px solid #2f62af; }
+
+.bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  border-bottom-color: #2f63af; }
+
+.bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  border-top-color: #2f63af; }
+
 .App {
   background-color: #e6e6e5;
   font-family: 'Roboto', sans-serif; }
@@ -809,7 +826,7 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   cursor: pointer; }
   .Post h1 {
     color: #2E64AF; }
-  .Post:hover {
+  .Post:hover, .Post :focus, .Post :active {
     background-color: #FFF; }
   .Post:nth-last-child(1) {
     border-bottom: 1px solid transparent; }

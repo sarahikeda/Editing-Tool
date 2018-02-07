@@ -6,7 +6,7 @@
     & h1 {
         color: #2E64AF;
     }
-    &:hover {
+    &:hover, :focus, :active {
         background-color: #FFF;
     }
     &:nth-last-child(1) {
