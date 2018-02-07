@@ -20,7 +20,7 @@ body{
 }
 
 .navbar {
-	padding: 0rem 0.3rem 0rem;
+	padding: 0rem 1rem 0rem;
 }
 
 select {
@@ -221,7 +221,7 @@ background-repeat:no-repeat;
 
 ul.nav.nav-tabs > li.nav-item{
 font-family: 'Interstate-Light', Helvetica, Arial;
-font-size:16px;
+font-size:12px;
 margin-right:20px;
 }
 
@@ -242,9 +242,14 @@ ul.nav.nav-tabs > li.nav-item > a.nav-link:hover{
 
 
 ul.nav.nav-tabs > li > a{
-text-decoration:none;	
-color:#9B9B9B;
-padding:0px 3px 5px 3px;
+	text-decoration:none;	
+	color:#9B9B9B;
+	padding:0px 3px 5px 3px;
+	cursor: pointer;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+	background-color:transparent;
 }
 
 nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded{

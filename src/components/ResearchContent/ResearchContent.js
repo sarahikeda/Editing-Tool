@@ -28,7 +28,14 @@ class ResearchContent extends Component {
     })
     return (
       <div className="research-content">
-        <h5 className="research-head-title">RESEARCH CONTENT</h5>
+        <h5 className="research-head-title">- Research Content</h5>
+
+        <ul className="nav nav-tabs mb-2">
+              <li className="nav-item"><a className="nav-link active">Research Feed</a></li>
+              <li className="nav-item"><a className="nav-link">My Previuos Content</a></li>
+              <li className="nav-item"><a className="nav-link">Following</a></li>
+          </ul>
+
           <div className="input-group stylish-input-group mb-3">
             <input type="text" className="form-control search-input has-search" placeholder="Search" onKeyPress={this.getPosts}></input>
           </div>
