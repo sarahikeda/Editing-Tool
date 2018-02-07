@@ -13,11 +13,13 @@ class PostNav extends Component {
       }
     
     toggle = () => {
+        let popOpen = this.state.popoverOpen;
+        popOpen = !popOpen;
         this.setState({
-            popoverOpen: !this.state.popoverOpen
+            popoverOpen: popOpen
         });
     }
-    
+
     render() {
         return (
             <div className="float-right">
