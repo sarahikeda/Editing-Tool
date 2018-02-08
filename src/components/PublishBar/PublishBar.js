@@ -11,6 +11,12 @@ export default class PublishBar extends Component {
     };
   }
 
+  insertHtml = () => {
+    window.CKEDITOR.instances['editor1'].insertHtml(
+      "<h1>Today's Highlights</h1><p>Type your highlights...</p><h1>Focus Items</h1>"
+    )
+  }
+
   toggle = () => {
     var editorHtml = window.CKEDITOR.instances['editor1'].getData()
     this.setState({
@@ -31,6 +37,8 @@ export default class PublishBar extends Component {
             <option>4</option>
             <option>5</option>
           </Input>
+          <Button onClick={this.insertHtml} className="btn ml-2" size="sm">Add Template</Button>
+
           <Button onClick={this.toggle} className="btn ml-2" size="sm">Save as New Template</Button>
           <ContentModal
             editorContent={this.state.editorContent}
