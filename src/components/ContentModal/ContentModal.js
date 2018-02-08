@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class ContentModal extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
     render() {
       return (
         <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className}>
