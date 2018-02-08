@@ -1,6 +1,6 @@
 /* CSS Document */
 body {
-  overflow: hidden;
+  overflow: scroll;
   font-family: 'Interstate-Light', Helvetica, Arial;
   color: #1A3E6F;
   background: #EEEFF0;
@@ -15,7 +15,7 @@ body {
   background-color: #333A40 !important; }
 
 .navbar {
-  padding: 0rem 0.3rem 0rem; }
+  padding: 0rem 1rem 0rem; }
 
 select {
   height: 34px !important;
@@ -58,6 +58,10 @@ button[disabled]:hover {
   color: #1A3E6F;
   padding: 10px;
   border: none; }
+  .btn.btn-xs {
+    height: 25px;
+    min-width: 30px;
+    padding: 4px; }
 
 .btn:hover,
 .btn-ico:hover {
@@ -185,7 +189,7 @@ ul.dropdown-menu > li > a:hover {
 
 ul.nav.nav-tabs > li.nav-item {
   font-family: 'Interstate-Light', Helvetica, Arial;
-  font-size: 16px;
+  font-size: 12px;
   margin-right: 20px; }
 
 ul.nav.nav-tabs > li.nav-item > a.nav-link.active, ul.nav.nav-tabs > li.nav-item > a.nav-link.active:hover, ul.nav.nav-tabs > li.nav-item > a.nav-link:active {
@@ -204,7 +208,11 @@ ul.nav.nav-tabs > li.nav-item > a.nav-link:hover {
 ul.nav.nav-tabs > li > a {
   text-decoration: none;
   color: #9B9B9B;
-  padding: 0px 3px 5px 3px; }
+  padding: 0px 3px 5px 3px;
+  cursor: pointer; }
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: transparent; }
 
 nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded {
   height: 42px;
@@ -670,6 +678,19 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .error {
   color: red; }
 
+.popover-inner > .popover-header {
+  background-color: #2f63af;
+  border-bottom: 1px solid #2f63af; }
+
+.bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
+  border-bottom: 1px solid #2f62af; }
+
+.bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  border-bottom-color: #2f63af; }
+
+.bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  border-top-color: #2f63af; }
+
 .App {
   background-color: #e6e6e5;
   font-family: 'Roboto', sans-serif; }
@@ -678,6 +699,10 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   text-align: right;
   margin-right: 200px;
   font-size: 10px; }
+
+.logo {
+  margin-top: -7px;
+  margin-right: -20px; }
 
 .navigation-bar.navbar.navbar-default {
   background-color: #2E64AF;
@@ -724,7 +749,7 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .Base {
   background-color: #fff;
   height: 45px;
-  padding: 0rem 0.3rem 0rem; }
+  padding: 0rem 1.5rem 0rem; }
 
 .template-select {
   width: 150px !important; }
@@ -775,9 +800,16 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
     font-size: 10px;
     margin-bottom: 0; }
 
-.research-title {
+.Posts {
+  max-height: calc(100vh - 13rem);
+  overflow: auto; }
+
+.research-head-title {
   color: #1A3E6F;
-  opacity: 0.7; }
+  opacity: 0.7;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold; }
 
 #imaginary_container {
   margin-top: 20%;
@@ -799,11 +831,55 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   background-color: #fff; }
 
 .Post {
-  font-size: 16px;
   box-sizing: border-box;
-  margin-top: 5px;
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid #C8C8C8;
-  margin-bottom: 10px; }
+  cursor: pointer; }
   .Post h1 {
     color: #2E64AF; }
+  .Post:hover, .Post :focus, .Post :active {
+    background-color: #FFF; }
+  .Post:nth-last-child(1) {
+    border-bottom: 1px solid transparent; }
+
+.display-date {
+  font-weight: lighter;
+  font-size: 11px;
+  color: #646464; }
+
+.research-author {
+  color: #646464;
+  font-size: 11px;
+  text-transform: uppercase; }
+
+.research-title {
+  font-size: 16px;
+  color: #2E64AF; }
+
+.research-body {
+  font-size: 14px;
+  color: #646464; }
+
+.add-n-cross {
+  padding: 6px 6px;
+  background-color: #1A3E6F;
+  color: #fff;
+  border-radius: 100%;
+  font-size: 13px;
+  line-height: 0.4rem;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  transition: 0.3s ease-out; }
+  .add-n-cross:hover {
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    transform: rotateZ(90deg); }
+
+.fa-times-circle {
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  transition: 0.3s ease-out; }
+  .fa-times-circle:hover {
+    -webkit-transform: rotateZ(45deg);
+    -moz-transform: rotateZ(45deg);
+    transform: rotateZ(45deg); }

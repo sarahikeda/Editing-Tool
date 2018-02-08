@@ -1,8 +1,9 @@
 /* CSS Document */
 body {
-  overflow: hidden;
+  overflow: scroll;
   font-family: 'Interstate-Light', Helvetica, Arial;
   color: #1A3E6F;
+  background: #EEEFF0;
   font-size: 0.8rem; }
 
 .loader {
@@ -14,7 +15,7 @@ body {
   background-color: #333A40 !important; }
 
 .navbar {
-  padding: 0rem 0.3rem 0rem; }
+  padding: 0rem 1rem 0rem; }
 
 select {
   height: 34px !important;
@@ -57,6 +58,10 @@ button[disabled]:hover {
   color: #1A3E6F;
   padding: 10px;
   border: none; }
+  .btn.btn-xs {
+    height: 25px;
+    min-width: 30px;
+    padding: 4px; }
 
 .btn:hover,
 .btn-ico:hover {
@@ -184,7 +189,7 @@ ul.dropdown-menu > li > a:hover {
 
 ul.nav.nav-tabs > li.nav-item {
   font-family: 'Interstate-Light', Helvetica, Arial;
-  font-size: 16px;
+  font-size: 12px;
   margin-right: 20px; }
 
 ul.nav.nav-tabs > li.nav-item > a.nav-link.active, ul.nav.nav-tabs > li.nav-item > a.nav-link.active:hover, ul.nav.nav-tabs > li.nav-item > a.nav-link:active {
@@ -203,7 +208,11 @@ ul.nav.nav-tabs > li.nav-item > a.nav-link:hover {
 ul.nav.nav-tabs > li > a {
   text-decoration: none;
   color: #9B9B9B;
-  padding: 0px 3px 5px 3px; }
+  padding: 0px 3px 5px 3px;
+  cursor: pointer; }
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: transparent; }
 
 nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded {
   height: 42px;
@@ -668,3 +677,16 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 
 .error {
   color: red; }
+
+.popover-inner > .popover-header {
+  background-color: #2f63af;
+  border-bottom: 1px solid #2f63af; }
+
+.bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
+  border-bottom: 1px solid #2f62af; }
+
+.bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  border-bottom-color: #2f63af; }
+
+.bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  border-top-color: #2f63af; }
