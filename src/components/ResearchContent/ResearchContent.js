@@ -1,23 +1,35 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import Post from './ResearchPosts/ResearchPosts';
+import classnames from 'classnames';
 
 class ResearchContent extends Component {
   state = {
+    sections: [
+      {"id": "t_1", "name": "Research Feed"},
+      {"id": "t_2", "name": "My Previous Content"},
+      {"id": "t_3", "name": "Following"},
+    ],
     posts: [],
-    activeTab: '1'
+    activeTab: 't_1',
+    showLoader: false
   }
+  activeTb = ['nav-link'];
 
   componentDidMount() {
     //todo
   }
 
   getPosts = event => {
+    let show_Loader = this.state.showLoader;
     if (event.charCode === 13) {
       event.preventDefault();
+      this.setState({showLoader: !show_Loader})
       axios.get("https://my.api.mockaroo.com/posts.json?key=3dfc1d20")
           .then( response => {
-            this.setState({posts: response.data})
+            let new_show_loader = this.state.showLoader
+            this.setState({posts: response.data, showLoader: !new_show_loader})
           }
       )
     }
@@ -35,14 +47,21 @@ class ResearchContent extends Component {
     const posts = this.state.posts.map(post => {
       return <Post key={post.id} title={post.title} body={post.body} author={post.author} date={post.date} id={post.id}/>;
     })
+
+    const tabs = this.state.sections.map(tab => {
+      return  (
+          <li key={tab.id} className="nav-item">
+            <a className={classnames("nav-link", { active: this.state.activeTab === tab.id })} onClick={this.toggleTab.bind(this, tab.id)}>{tab.name}</a>
+          </li>
+      )
+    })
+
     return (
       <div className="research-content">
         <h5 className="research-head-title">- Research Content</h5>
 
-        <ul className="nav nav-tabs mb-2">
-              <li className="nav-item"><a className="nav-link active" onClick={this.toggleTab.bind(this, "1")}>Research Feed</a></li>
-              <li className="nav-item"><a className="nav-link" onClick={this.toggleTab.bind(this, "2")}>My Previous Content</a></li>
-              <li className="nav-item"><a className="nav-link" onClick={this.toggleTab.bind(this, "3")}>Following</a></li>
+        <ul className="nav nav-tabs mb-3">
+              {tabs}
           </ul>
 
           <div className="input-group stylish-input-group mb-3">
@@ -50,6 +69,7 @@ class ResearchContent extends Component {
           </div>
           <div className="Posts">
             <section>
+              <FontAwesomeIcon icon="spinner" pulse spin className={classnames("initShow", {showLoader: this.state.showLoader})}/>
               {posts}
             </section>
           </div>

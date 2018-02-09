@@ -27,3 +27,9 @@
 
 .form-control.search-input {
   background-color: #fff; }
+
+.initShow {
+  display: block; }
+
+.showLoader {
+  display: none; }

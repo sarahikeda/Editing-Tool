@@ -830,6 +830,12 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .form-control.search-input {
   background-color: #fff; }
 
+.initShow {
+  display: block; }
+
+.showLoader {
+  display: none; }
+
 .Post {
   box-sizing: border-box;
   padding: 10px;
@@ -879,7 +885,7 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   -webkit-transition: 0.3s ease-out;
   -moz-transition: 0.3s ease-out;
   transition: 0.3s ease-out; }
-  .fa-times-circle:hover {
+  .fa-times-circle.click {
     -webkit-transform: rotateZ(45deg);
     -moz-transform: rotateZ(45deg);
     transform: rotateZ(45deg); }

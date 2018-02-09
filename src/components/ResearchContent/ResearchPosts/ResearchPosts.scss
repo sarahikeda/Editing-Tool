@@ -57,7 +57,7 @@
     -webkit-transition: 0.3s ease-out;
     -moz-transition:  0.3s ease-out;
     transition:  0.3s ease-out; 
-    &:hover{
+    &.click{
         -webkit-transform: rotateZ(45deg);
         -moz-transform: rotateZ(45deg);
         transform: rotateZ(45deg);
