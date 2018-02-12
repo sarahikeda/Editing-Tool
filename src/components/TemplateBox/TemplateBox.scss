@@ -18,10 +18,26 @@
     color: #7592ba;
     border-left: 2px solid #3463a2;
   }
+  &.my-templates {
+    background-color: #dff5fd;
+    border-left: 2px solid #40b1d5;
+    color: #577ea4;
+  }
 }
 
 .template-title {
   font-size: 14px;
   text-decoration: underline;
   margin-bottom: 2px;
+}
+
+.extra-templates {
+  padding-left: 0px;
+}
+
+.close-circle {
+  color: #fe6478;
+  position:absolute;
+  margin-left: 165px;
+  margin-top: -10px;
 }

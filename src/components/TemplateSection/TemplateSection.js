@@ -50,7 +50,7 @@ class TemplateSection extends Component {
         </div>
         <p className="template-section-name">All Templates</p>
         <Row>
-          <TemplateBox class="all-templates"/>
+          <TemplateBox class="all-templates" personalTemplate={true} />
           <TemplateBox class="all-templates"/>
           <TemplateBox class="all-templates"/>
           <TemplateBox class="all-templates"/>
@@ -67,7 +67,7 @@ class TemplateSection extends Component {
             icon="chevron-down"
             onClick={() => this.setState({ openAll: !this.state.openAll })}
           />
-        <div className={"collapse" + (this.state.openAll ? ' in' : '')}>
+          <div className={"collapse" + (this.state.openAll ? ' in' : '')}>
             <Row>
               <TemplateBox class="all-templates"/>
               <TemplateBox class="all-templates"/>
@@ -81,16 +81,18 @@ class TemplateSection extends Component {
               <TemplateBox class="all-templates"/>
             </Row>
           </div>
-      </div>
-        <p className="template-section-name">Standard Templates</p>
-        <Row>
-          <TemplateBox class="all-templates"/>
-          <TemplateBox class="all-templates"/>
-        </Row>
-        <p className="template-section-name">My Templates</p>
-        <Row>
-          <TemplateBox class="all-templates"/>
-          <TemplateBox class="all-templates"/>
+        </div>
+        <Row >
+          <Col className="extra-templates" lg="6">
+            <TemplateBox class="all-templates"/>
+            <span className="template-section-name">Standard Templates</span>
+            <TemplateBox class="all-templates"/>
+          </Col>
+          <Col className="extra-templates" lg="6">
+            <span className="template-section-name">My Templates</span>
+            <TemplateBox class="my-templates"/>
+            <TemplateBox class="my-templates"/>
+          </Col>
         </Row>
       </div>
     );
