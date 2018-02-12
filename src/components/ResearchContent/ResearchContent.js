@@ -66,7 +66,8 @@ class ResearchContent extends Component {
   render() {
     
     const posts = this.state.posts.map(post => {
-      return <Post key={post.id} title={post.title} body={post.body} author={post.author} date={post.date} id={post.id}/>;
+      //return <Post key={post.id} title={post.title} body={post.body} author={post.author} date={post.date} id={post.id}/>;
+      return <Post key={post.id} specs={{...post}}/>;
     })
 
     const tabs = this.state.sections.map(tab => {

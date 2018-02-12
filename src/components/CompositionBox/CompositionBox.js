@@ -15,9 +15,11 @@ class CompositionBox extends Component {
   addTagHandler = event => {
     if(event.charCode === 13) {
       const tags_Coll = [...this.state.tags]
-      tags_Coll.push(event.target.value)
-      this.setState({tags: tags_Coll})
-      event.target.value = "";
+      if(event.target.value.trim() !== ""){
+        tags_Coll.push(event.target.value)
+        this.setState({tags: tags_Coll})
+        event.target.value = "";
+      }
     }
   }
 
