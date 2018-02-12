@@ -84,8 +84,8 @@ class TemplateSection extends Component {
         </div>
         <Row >
           <Col className="extra-templates" lg="6">
-            <TemplateBox class="all-templates"/>
             <span className="template-section-name">Standard Templates</span>
+            <TemplateBox class="all-templates"/>
             <TemplateBox class="all-templates"/>
           </Col>
           <Col className="extra-templates" lg="6">
