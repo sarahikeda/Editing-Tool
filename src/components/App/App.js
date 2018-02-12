@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import PublishBar from '../PublishBar/PublishBar';
-import CompositionBox from '../CompositionBox/CompositionBox';
+import TemplateSection from '../TemplateSection/TemplateSection';
+import CompositionSection from '../CompositionBox/CompositionBox';
 import ResearchContent from '../ResearchContent/ResearchContent';
 
 import fontawesome from '@fortawesome/fontawesome'
@@ -18,19 +19,10 @@ class App extends Component {
       <div className={classes.App}>
         <header className="{classes.App-header}">
           <NavigationBar/>
-          <PublishBar/>
         </header>
         <Container>
           <Row>
-
-            <Col lg="7">
-              <CompositionBox/> 
-            </Col>
-
-            <Col lg="5" className="{classes.initial-recent-section}">
-              <ResearchContent/> 
-            </Col>
-
+            <TemplateSection/>
           </Row>
         </Container>
       </div>

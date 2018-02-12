@@ -1,0 +1,10 @@
+.template-section {
+  margin-top: 50px; }
+
+.collapse {
+  display: none; }
+  .collapse.in {
+    display: block; }
+
+.expand-chevron {
+  text-align: center; }
