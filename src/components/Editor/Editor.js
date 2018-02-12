@@ -7,9 +7,6 @@ class CKEditor extends React.Component {
   constructor(props) {
     super(props);
 
-    //Bindings
-    this.onLoad = this.onLoad.bind(this);
-
     //State initialization
     this.state = {
       isScriptLoaded: this.props.isScriptLoaded,
@@ -37,17 +34,18 @@ class CKEditor extends React.Component {
     // iterate through all the h1s and add one div with the h1 names on top
     if (editorData.match(/<h1>(.*)<\/h1>/g)) {
       var sections = editorData.match(/<h1>(.*)<\/h1>/g)
-
+      // get all the text within h1
+debugger
       this.setState({
         anchors: sections
       });
 
       console.log(this.state.anchors)
       this.state.anchors.map((section) =>
-      // re render part of the content editor {this.state.anchors but don't append, just change the content}
-      // remove the div then re-render it
-        window.CKEDITOR.instances['editor1'].insertHtml('<p>This is a new paragraph.</p>')
+        console.log('hi')
       )
+      var dataWithLinks = "<p>" + this.state.anchors + "</p>" + editorData
+      window.CKEDITOR.instances['editor1'].setData(dataWithLinks)
 
     } else {
       return ''
@@ -75,16 +73,12 @@ class CKEditor extends React.Component {
 
     this.editorInstance = window.CKEDITOR.appendTo(
       ReactDOM.findDOMNode(this),
-      {config:
-        {removePlugins: 'toolbar'}
-      },
       this.props.content
     );
 
     this.editorInstance.on('key', () => {
       var match = this.getEditorContent()
       this.setAnchors(match)
-
     });
   }
 

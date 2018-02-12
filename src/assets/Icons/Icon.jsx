@@ -17,7 +17,7 @@ const Icon = props => {
         style={styles.svg}
         width={`${props.size}px`}
         height={`${props.size}px`}
-        viewBox="0 0 1024 1024"
+        viewBox={`0 0 ${props.w || 1024} ${props.h || 1024}`}
       >
         <path
           style={styles.path}
@@ -31,6 +31,8 @@ const Icon = props => {
     icon: PropTypes.string.isRequired,
     size: PropTypes.number,
     color: PropTypes.string,
+    w: PropTypes.number,
+    h: PropTypes.number
   };
   
   Icon.defaultProps = {

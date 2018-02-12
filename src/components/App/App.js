@@ -23,11 +23,11 @@ class App extends Component {
         <Container>
           <Row>
 
-            <Col>
+            <Col lg="7">
               <CompositionBox/> 
             </Col>
 
-            <Col className="{classes.initial-recent-section}">
+            <Col lg="5" className="{classes.initial-recent-section}">
               <ResearchContent/> 
             </Col>
 
