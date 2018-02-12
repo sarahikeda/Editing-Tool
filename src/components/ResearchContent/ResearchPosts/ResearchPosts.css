@@ -47,7 +47,7 @@
   -webkit-transition: 0.3s ease-out;
   -moz-transition: 0.3s ease-out;
   transition: 0.3s ease-out; }
-  .fa-times-circle:hover {
+  .fa-times-circle.click {
     -webkit-transform: rotateZ(45deg);
     -moz-transform: rotateZ(45deg);
     transform: rotateZ(45deg); }
