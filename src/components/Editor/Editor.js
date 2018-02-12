@@ -29,26 +29,22 @@ class CKEditor extends React.Component {
   }
 
   getEditorContent = () =>  {
-    var editorData = window.CKEDITOR.instances["editor1"].getData()
-    var regExp = /<h1>(.*)<\/h1>/;
+    let editorData = window.CKEDITOR.instances["editor1"].getData()
+    let regExp = /<h1>(.*)<\/h1>/;
     // iterate through all the h1s and add one div with the h1 names on top
     if (editorData.match(/<h1>(.*)<\/h1>/g)) {
-      var sections = editorData.match(/<h1>(.*)<\/h1>/g)
-      // get all the text within h1
-debugger
+      let sections = editorData.match(/<h1>(.*)<\/h1>/g)
+
       this.setState({
-        anchors: sections
-      });
-
-      console.log(this.state.anchors)
-      this.state.anchors.map((section) =>
-        console.log('hi')
-      )
-      var dataWithLinks = "<p>" + this.state.anchors + "</p>" + editorData
+        anchors: sections.map((section) =>
+                              section.replace(/<h1>/,"").replace(/<\/h1>/,"")
+                            )
+      })
+      console.log("anchors", this.state.anchors)
+      // remove existing anchors
+      console.log('editor data', editorData)
+      let dataWithLinks = "<div id='quick-links'><p>" + this.state.anchors + "</p></div>" + editorData
       window.CKEDITOR.instances['editor1'].setData(dataWithLinks)
-
-    } else {
-      return ''
     }
   }
 
@@ -77,7 +73,7 @@ debugger
     );
 
     this.editorInstance.on('key', () => {
-      var match = this.getEditorContent()
+      let match = this.getEditorContent()
       this.setAnchors(match)
     });
   }

@@ -39,7 +39,6 @@ class CompositionBox extends Component {
           <Col>
             <div className="content">
               <CompositionHeader/>
-              <QuickLinks/>
               <Editor title="Focus Items"/>
               <Signature/>
             </div>
