@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import TemplateBox from '../TemplateBox/TemplateBox';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
@@ -13,7 +13,7 @@ class TemplateSection extends Component {
   }
   render() {
     return (
-      <div className="template-section">
+      <div className="template-section container">
         <p className="template-section-name">Drafts</p>
         <Row>
           <TemplateBox class="drafts"/>
