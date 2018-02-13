@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import PublishBar from '../PublishBar/PublishBar';
 import CompositionBox from '../CompositionBox/CompositionBox';
 import ResearchContent from '../ResearchContent/ResearchContent';
 
@@ -12,16 +13,19 @@ fontawesome.library.add( faCog, faSpinner, faTimesCircle, faSquare, faCheckSquar
 class CompositionTool extends Component {
   render() {
     return (
-      <Container>
-        <Row>
-          <Col lg="7">
-            <CompositionBox/>
-          </Col>
-          <Col lg="5" className="{classes.initial-recent-section}">
-            <ResearchContent/>
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <PublishBar/>
+        <Container>
+          <Row>
+            <Col lg="7">
+              <CompositionBox/>
+            </Col>
+            <Col lg="5" className="{classes.initial-recent-section}">
+              <ResearchContent/>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 }

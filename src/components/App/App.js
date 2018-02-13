@@ -14,7 +14,6 @@ class App extends Component {
       <div className={classes.App}>
         <header className="{classes.App-header}">
           <NavigationBar/>
-          <PublishBar/>
         </header>
       </div>
     );
