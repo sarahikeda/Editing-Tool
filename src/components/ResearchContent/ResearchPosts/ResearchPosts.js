@@ -20,7 +20,7 @@ class ResearchPost extends Component {
     }
     render() {
         return (
-            <article className="Post">
+            <article className="Post animated bounceInDown">
                 <div className="clearfix">
                     <div className="research-author mb-1 float-left">
                     <span><Icon icon={ICONS.STAR} size={14} color={this.props.specs.following ? "#F5A623" : "#9B9B9B"} w={42} h={42}/></span>

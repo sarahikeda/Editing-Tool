@@ -285,6 +285,11 @@ table.table.table-striped.spaced > tbody > tr > td.vis {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: rgba(46, 100, 175, 0.2); }
 
+.table th, .table td {
+  padding: 0.25rem;
+  vertical-align: top;
+  border-top: 1px solid transparent; }
+
 .table-danger {
   color: #9A3844 !important;
   background: rgba(255, 101, 120, 0.1) !important; }

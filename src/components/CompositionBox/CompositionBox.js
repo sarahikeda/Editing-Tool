@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import CompositionHeader from '../CompositionHeader/CompositionHeader';
-import QuickLinks from '../QuickLinks/QuickLinks';
 import Editor from '../Editor/Editor';
 import Summary from '../Summary/Summary';
 import Tags from '../Tags/Tags';
@@ -40,8 +39,7 @@ class CompositionBox extends Component {
           <Col>
             <div className="content">
               <CompositionHeader/>
-              <QuickLinks/>
-              <Editor title="Focus Items"/>
+              <Editor/>
               <Signature/>
             </div>
             <Summary/>
