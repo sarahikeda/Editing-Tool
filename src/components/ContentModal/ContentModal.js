@@ -12,7 +12,7 @@ export default class ContentModal extends Component {
         <ModalBody>
           <form className="form-inline">
             <div className="form-group">
-              <label>Template Name</label>
+              <label className="template-prompt">Template Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -21,7 +21,7 @@ export default class ContentModal extends Component {
             </div>
             <Button
               type="submit"
-              className="btn btn-primary"
+              className="template-save btn btn-primary"
               onClick={this.props.handleFileSave}>
               Save Template
             </Button>
