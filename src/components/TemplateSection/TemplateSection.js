@@ -13,85 +13,115 @@ class TemplateSection extends Component {
   }
   render() {
     return (
-      <div className="template-section container">
-        <p className="template-section-name">Drafts</p>
+      <div class="template-section container">
+        <p class="template-section-name">Drafts</p>
         <Row>
-          <TemplateBox className="drafts"/>
-          <TemplateBox className="drafts"/>
-          <TemplateBox className="drafts"/>
-          <TemplateBox className="drafts"/>
-        </Row>
-        <Row>
-          <TemplateBox className="drafts"/>
-          <TemplateBox className="drafts"/>
-          <TemplateBox className="drafts"/>
-          <TemplateBox className="drafts"/>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="drafts"/>
+            <TemplateBox class="drafts"/>
+          </Col>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="drafts"/>
+            <TemplateBox class="drafts"/>
+          </Col>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="drafts"/>
+            <TemplateBox class="drafts"/>
+          </Col>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="drafts"/>
+            <TemplateBox class="drafts"/>
+          </Col>
         </Row>
         <div class="expand-chevron">
           <FontAwesomeIcon
-            className="expand-chevron"
+            class="expand-chevron"
             icon="chevron-down"
             onClick={() => this.setState({ openDrafts: !this.state.openDrafts })}
           />
-      </div>
-        <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
+        </div>
+        <div class={"collapse" + (this.state.openDrafts ? ' in' : '')}>
           <Row>
-            <TemplateBox className="drafts"/>
-            <TemplateBox className="drafts"/>
-            <TemplateBox className="drafts"/>
-            <TemplateBox className="drafts"/>
-          </Row>
-          <Row>
-            <TemplateBox className="drafts"/>
-            <TemplateBox className="drafts"/>
-            <TemplateBox className="drafts"/>
-            <TemplateBox className="drafts"/>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="drafts"/>
+              <TemplateBox class="drafts"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="drafts"/>
+              <TemplateBox class="drafts"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="drafts"/>
+              <TemplateBox class="drafts"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="drafts"/>
+              <TemplateBox class="drafts"/>
+            </Col>
           </Row>
         </div>
-        <p className="template-section-name">All Templates</p>
+        <p class="template-section-name">All Templates</p>
         <Row>
-          <TemplateBox className="all-templates" personalTemplate={true} />
-          <TemplateBox className="all-templates"/>
-          <TemplateBox className="all-templates"/>
-          <TemplateBox className="all-templates"/>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="all-templates"/>
+            <TemplateBox class="all-templates"/>
+          </Col>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="all-templates"/>
+            <TemplateBox class="all-templates"/>
+          </Col>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="all-templates"/>
+            <TemplateBox class="all-templates"/>
+          </Col>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="all-templates"/>
+            <TemplateBox class="all-templates"/>
+          </Col>
         </Row>
-        <Row>
-          <TemplateBox className="all-templates"/>
-          <TemplateBox className="all-templates"/>
-          <TemplateBox className="all-templates"/>
-          <TemplateBox className="all-templates"/>
-        </Row>
-        <div className="expand-chevron">
+        <div class="expand-chevron">
           <FontAwesomeIcon
-            className="expand-chevron"
+            class="expand-chevron"
             icon="chevron-down"
             onClick={() => this.setState({ openAll: !this.state.openAll })}
           />
-          <div className={"collapse" + (this.state.openAll ? ' in' : '')}>
-            <Row>
-              <TemplateBox className="all-templates"/>
-              <TemplateBox className="all-templates"/>
-              <TemplateBox className="all-templates"/>
-              <TemplateBox className="all-templates"/>
-            </Row>
-            <Row>
-              <TemplateBox className="all-templates"/>
-              <TemplateBox className="all-templates"/>
-              <TemplateBox className="all-templates"/>
-              <TemplateBox className="all-templates"/>
-            </Row>
-          </div>
         </div>
-        <Row >
-          <Col className="extra-templates" lg="6">
-            <span className="template-section-name">Standard Templates</span>
-            <TemplateBox className="all-templates"/>
-            <TemplateBox className="all-templates"/>
+        <div class={"collapse" + (this.state.openAll ? ' in' : '')}>
+          <Row>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="all-templates"/>
+              <TemplateBox class="all-templates"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="all-templates"/>
+              <TemplateBox class="all-templates"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="all-templates"/>
+              <TemplateBox class="all-templates"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox class="all-templates"/>
+              <TemplateBox class="all-templates"/>
+            </Col>
+          </Row>
+        </div>
+        <Row>
+           <Col className="template-columns" xs="3">
+            <TemplateBox class="all-templates"/>
+            <TemplateBox class="all-templates"/>
           </Col>
-          <Col className="extra-templates" lg="6">
-            <span className="template-section-name">My Templates</span>
-            <TemplateBox className="my-templates"/>
-            <TemplateBox className="my-templates"/>
+          <Col className="template-columns"xs="3">
+            <TemplateBox class="all-templates"/>
+            <TemplateBox class="all-templates"/>
+          </Col>
+           <Col className="template-columns" xs="3">
+            <TemplateBox class="my-templates"/>
+            <TemplateBox class="my-templates"/>
+          </Col>
+          <Col className="template-columns" xs="3">
+            <TemplateBox class="my-templates"/>
+            <TemplateBox class="my-templates"/>
           </Col>
         </Row>
       </div>
