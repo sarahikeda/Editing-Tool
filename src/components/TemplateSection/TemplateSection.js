@@ -16,16 +16,16 @@ class TemplateSection extends Component {
       <div className="template-section container">
         <p className="template-section-name">Drafts</p>
         <Row>
-          <TemplateBox class="drafts"/>
-          <TemplateBox class="drafts"/>
-          <TemplateBox class="drafts"/>
-          <TemplateBox class="drafts"/>
+          <TemplateBox className="drafts"/>
+          <TemplateBox className="drafts"/>
+          <TemplateBox className="drafts"/>
+          <TemplateBox className="drafts"/>
         </Row>
         <Row>
-          <TemplateBox class="drafts"/>
-          <TemplateBox class="drafts"/>
-          <TemplateBox class="drafts"/>
-          <TemplateBox class="drafts"/>
+          <TemplateBox className="drafts"/>
+          <TemplateBox className="drafts"/>
+          <TemplateBox className="drafts"/>
+          <TemplateBox className="drafts"/>
         </Row>
         <div class="expand-chevron">
           <FontAwesomeIcon
@@ -36,32 +36,32 @@ class TemplateSection extends Component {
       </div>
         <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
           <Row>
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
+            <TemplateBox className="drafts"/>
+            <TemplateBox className="drafts"/>
+            <TemplateBox className="drafts"/>
+            <TemplateBox className="drafts"/>
           </Row>
           <Row>
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
+            <TemplateBox className="drafts"/>
+            <TemplateBox className="drafts"/>
+            <TemplateBox className="drafts"/>
+            <TemplateBox className="drafts"/>
           </Row>
         </div>
         <p className="template-section-name">All Templates</p>
         <Row>
-          <TemplateBox class="all-templates" personalTemplate={true} />
-          <TemplateBox class="all-templates"/>
-          <TemplateBox class="all-templates"/>
-          <TemplateBox class="all-templates"/>
+          <TemplateBox className="all-templates" personalTemplate={true} />
+          <TemplateBox className="all-templates"/>
+          <TemplateBox className="all-templates"/>
+          <TemplateBox className="all-templates"/>
         </Row>
         <Row>
-          <TemplateBox class="all-templates"/>
-          <TemplateBox class="all-templates"/>
-          <TemplateBox class="all-templates"/>
-          <TemplateBox class="all-templates"/>
+          <TemplateBox className="all-templates"/>
+          <TemplateBox className="all-templates"/>
+          <TemplateBox className="all-templates"/>
+          <TemplateBox className="all-templates"/>
         </Row>
-        <div class="expand-chevron">
+        <div className="expand-chevron">
           <FontAwesomeIcon
             className="expand-chevron"
             icon="chevron-down"
@@ -69,29 +69,29 @@ class TemplateSection extends Component {
           />
           <div className={"collapse" + (this.state.openAll ? ' in' : '')}>
             <Row>
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
+              <TemplateBox className="all-templates"/>
+              <TemplateBox className="all-templates"/>
+              <TemplateBox className="all-templates"/>
+              <TemplateBox className="all-templates"/>
             </Row>
             <Row>
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
+              <TemplateBox className="all-templates"/>
+              <TemplateBox className="all-templates"/>
+              <TemplateBox className="all-templates"/>
+              <TemplateBox className="all-templates"/>
             </Row>
           </div>
         </div>
         <Row >
           <Col className="extra-templates" lg="6">
             <span className="template-section-name">Standard Templates</span>
-            <TemplateBox class="all-templates"/>
-            <TemplateBox class="all-templates"/>
+            <TemplateBox className="all-templates"/>
+            <TemplateBox className="all-templates"/>
           </Col>
           <Col className="extra-templates" lg="6">
             <span className="template-section-name">My Templates</span>
-            <TemplateBox class="my-templates"/>
-            <TemplateBox class="my-templates"/>
+            <TemplateBox className="my-templates"/>
+            <TemplateBox className="my-templates"/>
           </Col>
         </Row>
       </div>
