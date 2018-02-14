@@ -8,7 +8,9 @@ export default class PublishBar extends Component {
     this.state = {
       modal: false,
       editorContent: '',
-      templateName: ''
+      templateName: '',
+      templateObject: {},
+      allTemplates: []
     };
   }
 
@@ -27,16 +29,18 @@ export default class PublishBar extends Component {
     var editorHtml = window.CKEDITOR.instances['editor1'].getData()
     this.setState({
       modal: !this.state.modal,
-      editorContent: editorHtml,
-    }, () => this.createTemplateObject());
+      templateObject: {
+        templateName: this.state.templateName,
+        templateContent: editorHtml
+      }
+    }, () => this.storeTemplateObject());
   }
 
-  createTemplateObject = () => {
-    let templateObject = {
-      templateName: this.state.templateName,
-      templateContent: this.state.editorContent
-    }
-    localStorage.setItem("template", JSON.stringify(templateObject))
+  storeTemplateObject = () => {
+    console.log('1')
+    this.state.allTemplates.push(this.state.templateObject)
+    localStorage.setItem("template", JSON.stringify(this.state.templateObject))
+    console.log('2')
   }
 
   onChangeValue = (e) => {
@@ -46,16 +50,19 @@ export default class PublishBar extends Component {
   }
 
   render() {
+    let templateList = (this.state.allTemplates.map((template) =>
+      <option
+        key={template.templateName}>
+        {template.templateName}
+      </option>
+    ))
     return (
       <Form inline className="mb-4 Base">
         <FormGroup className="mb-2 mr-auto mb-sm-0">
           <Label for="exampleEmail" className="mr-sm-2 align-items-center">Template:</Label>
           <Input type="select" name="select" id="exampleSelect" bsSize="sm" className="template-select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option value="Select" selected>Tech Template</option>
+            {templateList}
           </Input>
           <Button
             onClick={this.insertTemplate}
