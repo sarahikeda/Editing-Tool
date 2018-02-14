@@ -18,6 +18,7 @@ class PostNav extends Component {
         this.setState({
             popoverOpen: !popOpen
         });
+        this.props.isOpen(this.state.popoverOpen);
     }
 
     render() {

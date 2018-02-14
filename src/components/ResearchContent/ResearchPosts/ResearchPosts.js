@@ -9,25 +9,33 @@ class ResearchPost extends Component {
         super(props);
         this.id = this.props.id;
         this.state = {
-          popoverOpen: false,
-          tooltipOpen: false
+          tooltipOpen: false,
+          isOpen: false
         };
-      }
-    
-    toggle() {
-        this.setState({
-            popoverOpen: !this.state.popoverOpen
-        });
     }
+    
     togglett = () => {
         let tooltipOpen = this.state.tooltipOpen;
         this.setState({
             tooltipOpen: !tooltipOpen
         });
     }
+
+    setStyle = (_isOpen) => {
+        var _izOpen = _isOpen;
+        this.setState({isOpen: !_izOpen});
+    }
+
     render() {
+        const style = {backgroundColor: null}
+        if(this.state.isOpen){
+            style.backgroundColor = "#FFFFFF";
+        }else{
+            style.backgroundColor = null;
+        }
+
         return (
-            <article className="Post animated bounceInDown">
+            <article className="Post animated bounceInDown" style={style}>
                 <div className="clearfix">
                     <div className="research-author mb-1 float-left">
                             <span onClick={this.props.follow} id={`tt_${this.props.specs.id}`}>
@@ -48,7 +56,7 @@ class ResearchPost extends Component {
                         </span>
                     </div>
                     <div className="float-right">
-                       <PostNavs id={this.props.specs.id} />
+                       <PostNavs id={this.props.specs.id} isOpen={this.setStyle}/>
                     </div>
                 </div>
                 <h1 className="research-title"> {this.props.specs.title} </h1>
