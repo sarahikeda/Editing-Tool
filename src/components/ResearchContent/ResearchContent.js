@@ -4,11 +4,10 @@ import Post from './ResearchPosts/ResearchPosts';
 import Following from './Followings/Following';
 import classnames from 'classnames';
 import API from './../../services/api';
-//import StaticApi from './../../services/staticApi';
 import AsyncWrapper from './../../services/asyncWrapper';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import SearchMenuItem from './SearchMenuItem';
-//import searchJson from './../../staticJson/rf_search_dd.json';
+import { ENDPOINTS } from './../../services/endPoints.constants';
 
 class ResearchContent extends Component {
   state = {
@@ -26,7 +25,6 @@ class ResearchContent extends Component {
     isLoading: false,
     multiple: false,
     options: [],
-    
   }
   activeTb = ['nav-link'];
   showContent = ["animated"];
@@ -41,8 +39,8 @@ class ResearchContent extends Component {
     show_Loader = this.state.showLoader;
     this.setState({showLoader: !show_Loader});
 
-    if(tab === 't_1') url = "/posts.json?key=3dfc1d20&tab=research_feed"
-    else if(tab === 't_2') url = "/posts.json?key=3dfc1d20&tab=my_previous_content"
+    if(tab === 't_1') url = `${ENDPOINTS.RESEARCH_POST}&tab=research_feed`
+    else if(tab === 't_2') url = `${ENDPOINTS.RESEARCH_POST}&tab=my_previous_content`
     else {
       this.setState({posts: [], showLoader: show_Loader});
       return
@@ -60,7 +58,7 @@ class ResearchContent extends Component {
     let show_Loader, url, err, response;
     show_Loader = this.state.showLoader;
     this.setState({showLoader: !show_Loader});
-    url = "/following.json?key=3dfc1d20";
+    url = `${ENDPOINTS.FOLLOWING}`;
     [ err, response ] = await AsyncWrapper(API.get(url));
     if(err) {console.log(err)};
     if(response && response.status === 200) {
@@ -72,7 +70,7 @@ class ResearchContent extends Component {
   handleSearch = async query => {
     let url, response, err;
     this.setState({isLoading: true});
-    url = `/search.json?key=3dfc1d20&q=${query}`;
+    url = `${ENDPOINTS.SEARCH}&q=${query}`;
     [ err, response ] = await AsyncWrapper(API.get(url))
     if(err) {console.log(err)};
     if(response && response.status === 200) {
@@ -96,13 +94,12 @@ class ResearchContent extends Component {
     show_Loader = this.state.showLoader;
     this.setState({showLoader: !show_Loader});
 
-    if(this.state.activeTab === 't_1') url = `/posts.json?key=3dfc1d20&tab=research_feed&id=${queryObj.id}&category=${queryObj.category}&name=${queryObj.name}`
-    else if(this.state.activeTab === 't_2') url = `/posts.json?key=3dfc1d20&tab=my_previous_content&id=${queryObj.id}&category=${queryObj.category}&name=${queryObj.name}`
+    if(this.state.activeTab === 't_1') url = `${ENDPOINTS.RESEARCH_POST}&tab=research_feed&id=${queryObj.id}&category=${queryObj.category}&name=${queryObj.name}`
+    else if(this.state.activeTab === 't_2') url = `${ENDPOINTS.RESEARCH_POST}&tab=my_previous_content&id=${queryObj.id}&category=${queryObj.category}&name=${queryObj.name}`
     else {
       this.setState({posts: [], showLoader: show_Loader});
       return
     }
-
     [ err, response ] = await AsyncWrapper(API.get(url));
     if(err) {console.log(err)};
     if(response && response.status === 200) {
@@ -111,12 +108,11 @@ class ResearchContent extends Component {
     }
   }
 
-
-
   toggleTab = tab => {
     let tabState = this.state.activeTab;
     const posts = [];
     const  following = [];
+    this._typeahead.getInstance().clear();
     if(this.state.activeTab !== tab){
         tabState = tab;
         this.setState({posts: posts, following: following, "activeTab": tabState});
@@ -166,16 +162,13 @@ class ResearchContent extends Component {
           Research Content
         </h5>
 
-        {/* <Fade in={this.state.fadeIn} tag="h5" className="mt-3">  */}
-          <div className={this.showContent.join(' ')} style={this.initiateDisplay(this.state.expandContentArea) }>
-              <ul className="nav nav-tabs mb-3">
-                  {tabs}
-              </ul>
+        <div className={this.showContent.join(' ')} style={this.initiateDisplay(this.state.expandContentArea) }>
+            <ul className="nav nav-tabs mb-3">
+                {tabs}
+            </ul>
 
-              <div className="input-group stylish-input-group mb-3">
-                {/* <input type="text" className="form-control search-input has-search" placeholder="Search" onKeyPress={this.getSearchPosts}></input> */}
-                <AsyncTypeahead
-                  style={{width: '100vw'}}
+            <div className="input-group stylish-input-group mb-3">
+              <AsyncTypeahead
                   {...this.state}
                   labelKey={option =>  option.author ? `${option.name}` : `${option.sector}`}
                   minLength={2}
@@ -185,19 +178,16 @@ class ResearchContent extends Component {
                     <SearchMenuItem key={option.id} item={option}/>
                   )}
                   onChange={ selected => this.onSelectSearchItem(selected) }
+                  ref={(ref) => this._typeahead = ref}
                 />
-              </div>
-              <div className="Posts">
-                <section>
-                  <FontAwesomeIcon icon="spinner" pulse spin className={!this.state.showLoader ? "showLoader" : "initShow"}/>
-                  {this.state.activeTab !== 't_3' ? posts : followings}
-                </section>
-              </div>
-          </div>
-        {/* </Fade> */}
-      
-        
-
+            </div>
+            <div className="Posts">
+              <section>
+                <FontAwesomeIcon icon="spinner" pulse spin className={!this.state.showLoader ? "showLoader" : "initShow"}/>
+                {this.state.activeTab !== 't_3' ? posts : followings}
+              </section>
+            </div>
+        </div>
       </div>
     );
   }
