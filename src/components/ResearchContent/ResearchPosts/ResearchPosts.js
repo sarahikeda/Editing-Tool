@@ -26,6 +26,31 @@ class ResearchPost extends Component {
         this.setState({isOpen: !_izOpen});
     }
 
+    setContentOnEditor = (_val) => {
+        let str = null;
+        switch(_val.toLowerCase()){
+            case 'cf':
+                str = `<h3> ${this.props.specs.title} </h3>
+                        <p> ${this.props.specs.body} </p>            
+                    ` 
+            break;
+            case 'hdo':
+                str = `<h3> ${this.props.specs.title} </h3>`
+            break;
+            case 'hpl':
+               str = `<h4><a href="http://www.google.com" target="_blank"> Link </a></h4>`
+            break
+            case 'ws':
+                //
+            break;
+            default:
+                str = `<h3> ${this.props.specs.title} </h3>
+                        <p> ${this.props.specs.body} </p>            
+                    ` 
+        }
+        window.CKEDITOR.instances['editor1'].insertHtml(str)
+    }
+
     render() {
         const style = {backgroundColor: null}
         if(this.state.isOpen){
@@ -44,7 +69,7 @@ class ResearchPost extends Component {
                             <Tooltip className="app_tool_tip" placement="top" isOpen={this.state.tooltipOpen} autohide={true} target={`tt_${this.props.specs.id}`} toggle={this.togglett}>
                                 {this.props.specs.following ? 'Unfollow' : 'Follow'}
                             </Tooltip>
-                    {this.props.specs.author} 
+                        <span className="ml-1">{this.props.specs.author} </span>
                         <span className="ml-2 display-date">
                             {
                                 new Intl.DateTimeFormat('en-GB', { 
@@ -56,7 +81,7 @@ class ResearchPost extends Component {
                         </span>
                     </div>
                     <div className="float-right">
-                       <PostNavs id={this.props.specs.id} isOpen={this.setStyle}/>
+                       <PostNavs id={this.props.specs.id} isOpen={this.setStyle} setContent={this.setContentOnEditor}/>
                     </div>
                 </div>
                 <h1 className="research-title"> {this.props.specs.title} </h1>

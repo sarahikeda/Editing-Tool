@@ -54,7 +54,7 @@
 
 .dd-item-container {
   cursor: pointer;
-  padding: 2px; }
+  padding: 2px 4px; }
   .dd-item-container:hover {
     background-color: rgba(221, 228, 239, 0.3); }
 
