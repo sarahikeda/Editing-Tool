@@ -79,7 +79,7 @@ class ResearchContent extends Component {
   }
 
   onSelectSearchItem(item){
-    console.log(item)
+    //console.log(item)
     if(item.length > 0){
       let id = item[0].id;
       let category = item[0].author ? 'author' : 'topic';
@@ -132,11 +132,21 @@ class ResearchContent extends Component {
   initiateDisplay = (checkIfCollapsed) => ({
     display: checkIfCollapsed ? 'block' : 'none'
   })
+  
+  initiateFollow = (_post) => {
+    const postIndex = this.state.posts.findIndex(post => post.id === _post.id)
+    _post.following = !_post.following;
+    const postsCopy = [...this.state.posts];
+    postsCopy[postIndex] = _post;
+    this.setState({posts: postsCopy});
+
+    //Next step is to call backend to save the change
+  }
 
   render() {
     
     const posts = this.state.posts.map(post => {
-      return <Post key={post.id} specs={{...post}}/>;
+      return <Post key={post.id} specs={{...post}} follow={this.initiateFollow.bind(this, post)}/>;
     })
 
     const followings = <Following specs={this.state.followings} />
@@ -175,7 +185,7 @@ class ResearchContent extends Component {
                   onSearch={this.handleSearch}
                   placeholder="Search..."
                   renderMenuItemChildren={(option, props, idx) => (
-                    <SearchMenuItem key={option.id} item={option}/>
+                    <SearchMenuItem key={option.id} item={option} specs={{...props}}/>
                   )}
                   onChange={ selected => this.onSelectSearchItem(selected) }
                   ref={(ref) => this._typeahead = ref}

@@ -696,6 +696,9 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
   border-top-color: #2f63af; }
 
+.app_tool_tip {
+  font-size: 10px; }
+
 /*!
  * animate.css -http://daneden.me/animate
  * Version - 3.6.0
@@ -3438,3 +3441,15 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
     -webkit-transform: rotateZ(45deg);
     -moz-transform: rotateZ(45deg);
     transform: rotateZ(45deg); }
+
+.dd-item-container {
+  cursor: pointer;
+  padding: 2px; }
+  .dd-item-container:hover {
+    background-color: rgba(221, 228, 239, 0.3); }
+
+.dropdown-label {
+  color: #dde4ef;
+  font-size: 11px;
+  margin-top: auto;
+  margin-bottom: auto; }

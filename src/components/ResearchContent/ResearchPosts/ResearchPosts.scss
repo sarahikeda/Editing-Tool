@@ -63,3 +63,18 @@
         transform: rotateZ(45deg);
     }
 }
+
+.dd-item-container {
+    cursor: pointer;
+    padding: 2px;
+    &:hover {
+        background-color: rgba(221, 228, 239, 0.3)
+    }
+}
+
+.dropdown-label {
+    color: #dde4ef;
+    font-size: 11px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
