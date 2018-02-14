@@ -55,7 +55,7 @@ export default class NavigationBar extends Component {
               <Nav className="mr-auto" navbar>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
-                    New From Template
+                    Navigation
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem>
