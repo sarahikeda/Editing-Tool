@@ -300,11 +300,11 @@ color:white !important;
 	font-weight:normal;
 	font-size:12px;
 	color:#1A3E6F !important;
-border-bottom:1px solid rgba(119, 149, 188, 0.3);	
-border-top:none;
+	border-bottom:1px solid rgba(119, 149, 188, 0.3);	
+	border-top:none;
 	padding: 8px 12px 7px 12px;
 		
-	}
+}
 	
 	
 	 table.table.table-striped.spaced > thead > tr.sm > th{
@@ -343,6 +343,11 @@ border-top:none;
   background-color: rgba(46, 100, 175, 0.2);
 }
 
+.table th, .table td {
+    padding: 0.25rem;
+    vertical-align: top;
+    border-top: 1px solid transparent;
+}
 
 .table-danger{
 	color:#9A3844 !important;
@@ -838,4 +843,7 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 
 .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
     border-top-color: #2f63af;
+}
+.app_tool_tip{
+	font-size: 10px;
 }

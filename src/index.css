@@ -285,6 +285,11 @@ table.table.table-striped.spaced > tbody > tr > td.vis {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: rgba(46, 100, 175, 0.2); }
 
+.table th, .table td {
+  padding: 0.25rem;
+  vertical-align: top;
+  border-top: 1px solid transparent; }
+
 .table-danger {
   color: #9A3844 !important;
   background: rgba(255, 101, 120, 0.1) !important; }
@@ -690,6 +695,9 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 
 .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
   border-top-color: #2f63af; }
+
+.app_tool_tip {
+  font-size: 10px; }
 
 /*!
  * animate.css -http://daneden.me/animate
@@ -3368,6 +3376,18 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .showLoader {
   display: none; }
 
+.t-headers {
+  color: #9B9B9B;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: normal; }
+
+.rbt {
+  width: 100vw; }
+
+.rbt-input.form-control {
+  background-color: #fff; }
+
 .Post {
   box-sizing: border-box;
   padding: 10px;
@@ -3421,3 +3441,15 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
     -webkit-transform: rotateZ(45deg);
     -moz-transform: rotateZ(45deg);
     transform: rotateZ(45deg); }
+
+.dd-item-container {
+  cursor: pointer;
+  padding: 2px; }
+  .dd-item-container:hover {
+    background-color: rgba(221, 228, 239, 0.3); }
+
+.dropdown-label {
+  color: #dde4ef;
+  font-size: 11px;
+  margin-top: auto;
+  margin-bottom: auto; }

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import Post from './ResearchPosts/ResearchPosts';
+import Following from './Followings/Following';
 import classnames from 'classnames';
+import API from './../../services/api';
+import AsyncWrapper from './../../services/asyncWrapper';
+import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+import SearchMenuItem from './SearchMenuItem';
+import { ENDPOINTS } from './../../services/endPoints.constants';
 
 class ResearchContent extends Component {
   state = {
@@ -12,42 +17,107 @@ class ResearchContent extends Component {
       {"id": "t_3", "name": "Following"},
     ],
     posts: [],
+    followings: [],
     activeTab: 't_1',
     showLoader: false,
-    expandContentArea: false
+    expandContentArea: false,
+    allowNew: false,
+    isLoading: false,
+    multiple: false,
+    options: [],
   }
   activeTb = ['nav-link'];
   showContent = ["animated"];
   counter = 0;
 
-  componentDidMount() {
-    //todo
-    this.getPosts();
+  componentDidMount(){
+    this.getPosts('t_1');
   }
 
-  getPosts = () => {
-    let show_Loader = this.state.showLoader;
-    //if (event.charCode === 13) {
-    //  event.preventDefault();
-      this.setState({showLoader: !show_Loader})
-      axios.get("https://my.api.mockaroo.com/posts.json?key=3dfc1d20")
-          .then( response => {
-            let new_show_loader = this.state.showLoader
-            this.setState({posts: response.data, showLoader: !new_show_loader})
-          }
-      )
-    //}
+  getPosts = async tab => {
+    let show_Loader, url, err, response;
+    show_Loader = this.state.showLoader;
+    this.setState({showLoader: !show_Loader});
+
+    if(tab === 't_1') url = `${ENDPOINTS.RESEARCH_POST}&tab=research_feed`
+    else if(tab === 't_2') url = `${ENDPOINTS.RESEARCH_POST}&tab=my_previous_content`
+    else {
+      this.setState({posts: [], showLoader: show_Loader});
+      return
+    }
+
+    [ err, response ] = await AsyncWrapper(API.get(url));
+    if(err) {console.log(err)};
+    if(response && response.status === 200) {
+      show_Loader = this.state.showLoader
+      this.setState({posts: response.data, showLoader: !show_Loader})
+    }
   }
 
-  getSearchPosts = () => {
-    //todo
+  getFollowing = async () => {
+    let show_Loader, url, err, response;
+    show_Loader = this.state.showLoader;
+    this.setState({showLoader: !show_Loader});
+    url = `${ENDPOINTS.FOLLOWING}`;
+    [ err, response ] = await AsyncWrapper(API.get(url));
+    if(err) {console.log(err)};
+    if(response && response.status === 200) {
+      show_Loader = this.state.showLoader
+      this.setState({followings: response.data, showLoader: !show_Loader})
+    }
+  }
+  
+  handleSearch = async query => {
+    let url, response, err;
+    this.setState({isLoading: true});
+    url = `${ENDPOINTS.SEARCH}&q=${query}`;
+    [ err, response ] = await AsyncWrapper(API.get(url))
+    if(err) {console.log(err)};
+    if(response && response.status === 200) {
+      this.setState({isLoading: false, options: response.data})
+    }
+  }
+
+  onSelectSearchItem(item){
+    //console.log(item)
+    if(item.length > 0){
+      let id = item[0].id;
+      let category = item[0].author ? 'author' : 'topic';
+      let name = item[0].author ? item[0].name : item[0].sector;
+      let queryObj = {"id": id, "category": category, "name":name}
+      this.fetchSearchResults(queryObj)
+    }
+  }
+
+  fetchSearchResults = async queryObj => {
+    let show_Loader, url, err, response;
+    show_Loader = this.state.showLoader;
+    this.setState({showLoader: !show_Loader});
+
+    if(this.state.activeTab === 't_1') url = `${ENDPOINTS.RESEARCH_POST}&tab=research_feed&id=${queryObj.id}&category=${queryObj.category}&name=${queryObj.name}`
+    else if(this.state.activeTab === 't_2') url = `${ENDPOINTS.RESEARCH_POST}&tab=my_previous_content&id=${queryObj.id}&category=${queryObj.category}&name=${queryObj.name}`
+    else {
+      this.setState({posts: [], showLoader: show_Loader});
+      return
+    }
+    [ err, response ] = await AsyncWrapper(API.get(url));
+    if(err) {console.log(err)};
+    if(response && response.status === 200) {
+      show_Loader = this.state.showLoader
+      this.setState({posts: response.data, showLoader: !show_Loader})
+    }
   }
 
   toggleTab = tab => {
     let tabState = this.state.activeTab;
+    const posts = [];
+    const  following = [];
+    this._typeahead.getInstance().clear();
     if(this.state.activeTab !== tab){
         tabState = tab;
-        this.setState({"activeTab": tabState});
+        this.setState({posts: posts, following: following, "activeTab": tabState});
+        if(tab!== 't_3')this.getPosts(tab)
+        else this.getFollowing();
     }
   }
 
@@ -62,19 +132,31 @@ class ResearchContent extends Component {
   initiateDisplay = (checkIfCollapsed) => ({
     display: checkIfCollapsed ? 'block' : 'none'
   })
+  
+  initiateFollow = (_post) => {
+    const postIndex = this.state.posts.findIndex(post => post.id === _post.id)
+    _post.following = !_post.following;
+    const postsCopy = [...this.state.posts];
+    postsCopy[postIndex] = _post;
+    this.setState({posts: postsCopy});
+
+    //Next step is to call backend to save the change
+  }
 
   render() {
     
     const posts = this.state.posts.map(post => {
-      //return <Post key={post.id} title={post.title} body={post.body} author={post.author} date={post.date} id={post.id}/>;
-      return <Post key={post.id} specs={{...post}}/>;
+      return <Post key={post.id} specs={{...post}} follow={this.initiateFollow.bind(this, post)}/>;
     })
+
+    const followings = <Following specs={this.state.followings} />
+   
 
     const tabs = this.state.sections.map(tab => {
       return  (
         <li key={tab.id} className="nav-item">
-            <a className={classnames("nav-link", { active: this.state.activeTab === tab.id })} onClick={this.toggleTab.bind(this, tab.id)}>{tab.name}</a>
-          </li>
+          <a className={classnames("nav-link", { active: this.state.activeTab === tab.id })} onClick={this.toggleTab.bind(this, tab.id)}>{tab.name}</a>
+        </li>
       )
     })
     
@@ -90,26 +172,32 @@ class ResearchContent extends Component {
           Research Content
         </h5>
 
-        {/* <Fade in={this.state.fadeIn} tag="h5" className="mt-3">  */}
-          <div className={this.showContent.join(' ')} style={this.initiateDisplay(this.state.expandContentArea) }>
-              <ul className="nav nav-tabs mb-3">
-                  {tabs}
-              </ul>
+        <div className={this.showContent.join(' ')} style={this.initiateDisplay(this.state.expandContentArea) }>
+            <ul className="nav nav-tabs mb-3">
+                {tabs}
+            </ul>
 
-              <div className="input-group stylish-input-group mb-3">
-                <input type="text" className="form-control search-input has-search" placeholder="Search" onKeyPress={this.getSearchPosts}></input>
-              </div>
-              <div className="Posts">
-                <section>
-                  <FontAwesomeIcon icon="spinner" pulse spin className={!this.state.showLoader ? "showLoader" : "initShow"}/>
-                  {posts}
-                </section>
-              </div>
-          </div>
-        {/* </Fade> */}
-      
-        
-
+            <div className="input-group stylish-input-group mb-3">
+              <AsyncTypeahead
+                  {...this.state}
+                  labelKey={option =>  option.author ? `${option.name}` : `${option.sector}`}
+                  minLength={2}
+                  onSearch={this.handleSearch}
+                  placeholder="Search..."
+                  renderMenuItemChildren={(option, props, idx) => (
+                    <SearchMenuItem key={option.id} item={option} specs={{...props}}/>
+                  )}
+                  onChange={ selected => this.onSelectSearchItem(selected) }
+                  ref={(ref) => this._typeahead = ref}
+                />
+            </div>
+            <div className="Posts">
+              <section>
+                <FontAwesomeIcon icon="spinner" pulse spin className={!this.state.showLoader ? "showLoader" : "initShow"}/>
+                {this.state.activeTab !== 't_3' ? posts : followings}
+              </section>
+            </div>
+        </div>
       </div>
     );
   }
