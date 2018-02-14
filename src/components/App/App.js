@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import PublishBar from '../PublishBar/PublishBar';
 import fontawesome from '@fortawesome/fontawesome'
 import { faCog, faSpinner, faTimesCircle, faSquare, faCheckSquare } from '@fortawesome/fontawesome-free-solid';
 
