@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Label,Button, Form, FormGroup } from 'reactstrap';
+import TemplateDropdown from '../TemplateDropdown/TemplateDropdown';
 import ContentModal from '../ContentModal/ContentModal';
 
 export default class PublishBar extends Component {
@@ -37,10 +38,8 @@ export default class PublishBar extends Component {
   }
 
   storeTemplateObject = () => {
-    console.log('1')
     this.state.allTemplates.push(this.state.templateObject)
     localStorage.setItem("template", JSON.stringify(this.state.templateObject))
-    console.log('2')
   }
 
   onChangeValue = (e) => {
@@ -49,21 +48,15 @@ export default class PublishBar extends Component {
     });
   }
 
+
+
   render() {
-    let templateList = (this.state.allTemplates.map((template) =>
-      <option
-        key={template.templateName}>
-        {template.templateName}
-      </option>
-    ))
+
     return (
       <Form inline className="mb-4 Base">
         <FormGroup className="mb-2 mr-auto mb-sm-0">
           <Label for="exampleEmail" className="mr-sm-2 align-items-center">Template:</Label>
-          <Input type="select" name="select" id="exampleSelect" bsSize="sm" className="template-select">
-            <option value="Select" selected>Tech Template</option>
-            {templateList}
-          </Input>
+          <TemplateDropdown templateList={this.state.allTemplates}/>
           <Button
             onClick={this.insertTemplate}
             className="btn ml-2"
