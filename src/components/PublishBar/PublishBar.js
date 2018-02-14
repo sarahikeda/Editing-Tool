@@ -7,21 +7,41 @@ export default class PublishBar extends Component {
     super(props);
     this.state = {
       modal: false,
-      editorContent: ''
+      editorContent: '',
+      templateName: ''
     };
   }
 
-  insertHtml = () => {
+  toggle = () => {
+    this.setState({ modal: !this.state.modal})
+  }
+
+  insertTemplate = () => {
     window.CKEDITOR.instances['editor1'].insertHtml(
       "<h1>Today's Highlights</h1><p>Type your highlights...</p><h1>Focus Items</h1>"
     )
   }
 
-  toggle = () => {
+  handleFileSave = (e) => {
+    e.preventDefault();
     var editorHtml = window.CKEDITOR.instances['editor1'].getData()
     this.setState({
       modal: !this.state.modal,
-      editorContent: editorHtml
+      editorContent: editorHtml,
+    }, () => this.createTemplateObject());
+  }
+
+  createTemplateObject = () => {
+    let templateObject = {
+      templateName: this.state.templateName,
+      templateContent: this.state.editorContent
+    }
+    localStorage.setItem("template", JSON.stringify(templateObject))
+  }
+
+  onChangeValue = (e) => {
+    this.setState({
+      templateName: e.target.value
     });
   }
 
@@ -37,13 +57,25 @@ export default class PublishBar extends Component {
             <option>4</option>
             <option>5</option>
           </Input>
-          <Button onClick={this.insertHtml} className="btn ml-2" size="sm">Add Template</Button>
+          <Button
+            onClick={this.insertTemplate}
+            className="btn ml-2"
+            size="sm">
+            Add Template
+          </Button>
 
-          <Button onClick={this.toggle} className="btn ml-2" size="sm">Save as New Template</Button>
+          <Button
+            onClick={this.toggle}
+            className="btn ml-2"
+            size="sm">
+            Save as New Template
+          </Button>
           <ContentModal
             editorContent={this.state.editorContent}
             modal={this.state.modal}
-            toggle={this.toggle}/>
+            toggle={this.toggle}
+            handleFileSave={this.handleFileSave}
+            onChangeValue={this.onChangeValue}/>
         </FormGroup>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Button className="mr-2 btn green" size="sm">Publish</Button>
