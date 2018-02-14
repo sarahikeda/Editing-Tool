@@ -48,8 +48,6 @@ export default class PublishBar extends Component {
     });
   }
 
-
-
   render() {
 
     return (
