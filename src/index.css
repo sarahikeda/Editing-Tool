@@ -3236,11 +3236,6 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
   width: 50px;
   border: .5px solid #d0d0d0; }
 
-.template-title {
-  color: #4da4ee;
-  font-size: 10px;
-  height: 40px; }
-
 .template-date {
   font-size: 8px; }
 
@@ -3267,10 +3262,71 @@ ul.nav.nav-tabs, nav.navbar.navbar-toggleable-md.navbar-dark.bg-faded, .table.ta
 .template-select {
   width: 150px !important; }
 
+.template-section {
+  margin-top: 50px;
+  background-color: white;
+  padding: 20px 0 20px 40px; }
+
+.collapse {
+  display: none; }
+  .collapse.in {
+    display: block; }
+
+.expand-chevron {
+  text-align: center;
+  height: 10px;
+  margin-bottom: 10px; }
+
+.template-columns {
+  padding-left: 0px; }
+
+.template-section-name {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e4e4; }
+
+.template-box {
+  margin-right: 50px;
+  margin-bottom: 15px;
+  height: 50px;
+  padding: 5px 20px 0 10px;
+  width: 200px; }
+  .template-box.drafts {
+    background-color: #fef1de;
+    color: #cfb583;
+    border-left: 2px solid #e3b769; }
+  .template-box.all-templates {
+    background-color: #ebeef5;
+    color: #7592ba;
+    border-left: 2px solid #3463a2; }
+  .template-box.my-templates {
+    background-color: #dff5fd;
+    border-left: 2px solid #40b1d5;
+    color: #577ea4; }
+
+.template-title {
+  font-size: 14px;
+  text-decoration: underline;
+  margin-bottom: 2px; }
+
+.extra-templates {
+  padding-left: 0px; }
+
+.close-circle {
+  color: #fe6478;
+  position: absolute;
+  margin-left: 175px;
+  margin-top: -10px; }
+
 .modal-header {
   height: 30px;
   color: white;
   padding: 2px; }
+
+.template-prompt {
+  padding-right: 10px; }
+
+.template-save {
+  padding-left: 50px; }
 
 .composition-header {
   height: 40px;
