@@ -30,23 +30,19 @@ class ResearchPost extends Component {
         let str = null;
         switch(_val.toLowerCase()){
             case 'cf':
-                str = `<h3> ${this.props.specs.title} </h3>
-                        <p> ${this.props.specs.body} </p>            
-                    ` 
+                str = `<p><a href="${this.props.specs.url_link}" target="_blank"><strong> ${this.props.specs.title} </strong></a>${' '}${this.props.specs.body} </p><p> </p>` 
             break;
             case 'hdo':
-                str = `<h3> ${this.props.specs.title} </h3>`
+                str = `<p> <a href="${this.props.specs.url_link}" target="_blank"><strong> ${this.props.specs.title} </strong></a> </p><p> </p>`
             break;
             case 'hpl':
-               str = `<h4><a href="http://www.google.com" target="_blank"> Link </a></h4>`
+               str = `<p><a href="${this.props.specs.url_link}" target="_blank"> <em> < Change text by double clicking or right click / edit link> </em> </a></p><p> </p>`
             break
             case 'ws':
                 //
             break;
             default:
-                str = `<h3> ${this.props.specs.title} </h3>
-                        <p> ${this.props.specs.body} </p>            
-                    ` 
+                str = `<p> ${this.props.specs.body} ${' '}<a href="${this.props.specs.url_link}" target="_blank"><strong> ${this.props.specs.title} </strong></a> </p><p> </p>` 
         }
         window.CKEDITOR.instances['editor1'].insertHtml(str)
     }
