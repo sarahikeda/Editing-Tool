@@ -3,9 +3,6 @@ import { Row, Col } from 'reactstrap';
 import DraftTemplates from '../TemplateTypes/DraftTemplates';
 import AllTemplates from '../TemplateTypes/AllTemplates';
 import OtherTemplates from '../TemplateTypes/OtherTemplates';
-import TemplateBox from '../TemplateBox/TemplateBox';
-
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class TemplateSection extends Component {
   constructor(props) {
