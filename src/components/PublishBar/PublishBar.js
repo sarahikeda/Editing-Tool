@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Label,Button, Form, FormGroup } from 'reactstrap';
+import TemplateDropdown from '../TemplateDropdown/TemplateDropdown';
 import ContentModal from '../ContentModal/ContentModal';
 
 export default class PublishBar extends Component {
@@ -7,43 +8,72 @@ export default class PublishBar extends Component {
     super(props);
     this.state = {
       modal: false,
-      editorContent: ''
+      editorContent: '',
+      templateName: '',
+      templateObject: {},
+      allTemplates: []
     };
   }
 
-  insertHtml = () => {
+  toggle = () => {
+    this.setState({ modal: !this.state.modal})
+  }
+
+  insertTemplate = () => {
     window.CKEDITOR.instances['editor1'].insertHtml(
       "<h1>Today's Highlights</h1><p>Type your highlights...</p><h1>Focus Items</h1>"
     )
   }
 
-  toggle = () => {
+  handleFileSave = (e) => {
+    e.preventDefault();
     var editorHtml = window.CKEDITOR.instances['editor1'].getData()
     this.setState({
       modal: !this.state.modal,
-      editorContent: editorHtml
+      templateObject: {
+        templateName: this.state.templateName,
+        templateContent: editorHtml
+      }
+    }, () => this.storeTemplateObject());
+  }
+
+  storeTemplateObject = () => {
+    this.state.allTemplates.push(this.state.templateObject)
+    localStorage.setItem("template", JSON.stringify(this.state.templateObject))
+  }
+
+  onChangeValue = (e) => {
+    this.setState({
+      templateName: e.target.value
     });
   }
 
   render() {
+
     return (
       <Form inline className="mb-4 Base">
         <FormGroup className="mb-2 mr-auto mb-sm-0">
           <Label for="exampleEmail" className="mr-sm-2 align-items-center">Template:</Label>
-          <Input type="select" name="select" id="exampleSelect" bsSize="sm" className="template-select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Input>
-          <Button onClick={this.insertHtml} className="btn ml-2" size="sm">Add Template</Button>
+          <TemplateDropdown templateList={this.state.allTemplates}/>
+          <Button
+            onClick={this.insertTemplate}
+            className="btn ml-2"
+            size="sm">
+            Add Template
+          </Button>
 
-          <Button onClick={this.toggle} className="btn ml-2" size="sm">Save as New Template</Button>
+          <Button
+            onClick={this.toggle}
+            className="btn ml-2"
+            size="sm">
+            Save as New Template
+          </Button>
           <ContentModal
             editorContent={this.state.editorContent}
             modal={this.state.modal}
-            toggle={this.toggle}/>
+            toggle={this.toggle}
+            handleFileSave={this.handleFileSave}
+            onChangeValue={this.onChangeValue}/>
         </FormGroup>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Button className="mr-2 btn green" size="sm">Publish</Button>
