@@ -21,7 +21,7 @@ class TemplateSection extends Component {
 
   render() {
     return (
-      <div className="template-section container">
+      <div className="template-section">
         <DraftTemplates
           removeTemplate={this.removeTemplate}
           handleClick={this.props.handleClick}/>
