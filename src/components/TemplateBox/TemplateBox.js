@@ -4,7 +4,8 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 class TemplateBox extends Component {
   render() {
     return (
-      <div className={"template-box " + this.props.class}>
+      <div className={"template-box " + this.props.class}
+            onClick={this.props.handleClick}>
         <FontAwesomeIcon
           className="close-circle"
           icon="times-circle"

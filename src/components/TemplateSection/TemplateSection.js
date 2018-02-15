@@ -11,26 +11,44 @@ class TemplateSection extends Component {
       openAll: false
     };
   }
+
+
   render() {
     return (
       <div class="template-section container">
         <p class="template-section-name">Drafts</p>
         <Row>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
           </Col>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
           </Col>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
           </Col>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="drafts"/>
-            <TemplateBox class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="drafts"/>
           </Col>
         </Row>
         <div class="expand-chevron">
@@ -63,20 +81,33 @@ class TemplateSection extends Component {
         <p class="template-section-name">All Templates</p>
         <Row>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="all-templates"/>
-            <TemplateBox class="all-templates"/>
+            <TemplateBox handleClick={this.props.handleClick} class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
           </Col>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="all-templates"/>
-            <TemplateBox class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
           </Col>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="all-templates"/>
-            <TemplateBox class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
           </Col>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="all-templates"/>
-            <TemplateBox class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick} class="all-templates"/>
           </Col>
         </Row>
         <div class="expand-chevron">
@@ -89,39 +120,71 @@ class TemplateSection extends Component {
         <div class={"collapse" + (this.state.openAll ? ' in' : '')}>
           <Row>
             <Col className="template-columns" xs="3">
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
             </Col>
             <Col className="template-columns" xs="3">
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
             </Col>
             <Col className="template-columns" xs="3">
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
             </Col>
             <Col className="template-columns" xs="3">
-              <TemplateBox class="all-templates"/>
-              <TemplateBox class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
+              <TemplateBox
+                handleClick={this.props.handleClick}
+                class="all-templates"/>
             </Col>
           </Row>
         </div>
         <Row>
            <Col className="template-columns" xs="3">
-            <TemplateBox class="all-templates"/>
-            <TemplateBox class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
           </Col>
           <Col className="template-columns"xs="3">
-            <TemplateBox class="all-templates"/>
-            <TemplateBox class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="all-templates"/>
           </Col>
            <Col className="template-columns" xs="3">
-            <TemplateBox class="my-templates"/>
-            <TemplateBox class="my-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="my-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="my-templates"/>
           </Col>
           <Col className="template-columns" xs="3">
-            <TemplateBox class="my-templates"/>
-            <TemplateBox class="my-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="my-templates"/>
+            <TemplateBox
+              handleClick={this.props.handleClick}
+              class="my-templates"/>
           </Col>
         </Row>
       </div>
