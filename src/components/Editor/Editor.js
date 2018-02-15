@@ -10,10 +10,6 @@ const loadScript = require('load-script');
 class CKEditor extends React.Component {
   constructor(props) {
     super(props);
-
-    //Bindings
-    this.onLoad = this.onLoad.bind(this);
-
     //State initialization
     this.state = {
       isScriptLoaded: this.props.isScriptLoaded,
@@ -34,7 +30,7 @@ class CKEditor extends React.Component {
     this.unmounting = true;
   }
 
-  onLoad() {
+  onLoad = () => {
     if (this.unmounting) return;
 
     this.setState({
@@ -48,15 +44,6 @@ class CKEditor extends React.Component {
 
     this.editorInstance = window.CKEDITOR.appendTo(
       ReactDOM.findDOMNode(this),
-      {config:
-        {
-          extraPlugins: 'autogrow',
-          autoGrow_minHeight: 200,
-          autoGrow_maxHeight: 700,
-          autoGrow_bottomSpace: 25,
-          removePlugins: 'toolbar'
-        }
-      },
       this.props.content
     );
 
@@ -79,10 +66,7 @@ class CKEditor extends React.Component {
 
 CKEditor.defaultProps = {
   content: "",
-  config: {extraPlugins: 'autogrow',
-  autoGrow_minHeight: 200,
-  autoGrow_maxHeight: 700,
-  autoGrow_bottomSpace: 25},
+  config: {},
   isScriptLoaded: false,
   scriptUrl: 'http://sarahikeda.github.io/ckeditor/ckeditor.js',
   activeClass: "",

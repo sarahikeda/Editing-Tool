@@ -15,8 +15,8 @@ class TemplateSection extends Component {
 
   render() {
     return (
-      <div class="template-section container">
-        <p class="template-section-name">Drafts</p>
+      <div className="template-section container">
+        <p className="template-section-name">Drafts</p>
         <Row>
           <Col className="template-columns" xs="3">
             <TemplateBox
@@ -51,14 +51,14 @@ class TemplateSection extends Component {
               class="drafts"/>
           </Col>
         </Row>
-        <div class="expand-chevron">
+        <div className="expand-chevron">
           <FontAwesomeIcon
-            class="expand-chevron"
+            className="expand-chevron"
             icon="chevron-down"
             onClick={() => this.setState({ openDrafts: !this.state.openDrafts })}
           />
         </div>
-        <div class={"collapse" + (this.state.openDrafts ? ' in' : '')}>
+        <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
           <Row>
             <Col className="template-columns" xs="3">
               <TemplateBox class="drafts"/>
@@ -78,7 +78,7 @@ class TemplateSection extends Component {
             </Col>
           </Row>
         </div>
-        <p class="template-section-name">All Templates</p>
+        <p className="template-section-name">All Templates</p>
         <Row>
           <Col className="template-columns" xs="3">
             <TemplateBox handleClick={this.props.handleClick} class="all-templates"/>
@@ -110,14 +110,14 @@ class TemplateSection extends Component {
               handleClick={this.props.handleClick} class="all-templates"/>
           </Col>
         </Row>
-        <div class="expand-chevron">
+        <div className="expand-chevron">
           <FontAwesomeIcon
-            class="expand-chevron"
+            className="expand-chevron"
             icon="chevron-down"
             onClick={() => this.setState({ openAll: !this.state.openAll })}
           />
         </div>
-        <div class={"collapse" + (this.state.openAll ? ' in' : '')}>
+        <div className={"collapse" + (this.state.openAll ? ' in' : '')}>
           <Row>
             <Col className="template-columns" xs="3">
               <TemplateBox
