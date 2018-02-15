@@ -34,14 +34,12 @@ export default class NavigationBar extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      showTemplate: true,
-      showComposition: false
+      showTemplate: true
     };
   }
-  toggle() {
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
@@ -50,7 +48,6 @@ export default class NavigationBar extends Component {
   handleClick = () => {
     this.setState({
       showTemplate: !this.state.showTemplate,
-      showComposition: !this.state.showComposition
     })
   }
 
@@ -100,8 +97,8 @@ export default class NavigationBar extends Component {
             <img className="logo" alt="Citi Logo" src={Logo} />
           </NavbarBrand>
         </Navbar>
+        {<CompositionTool/>}
         {this.state.showTemplate && <TemplateSection handleClick={this.handleClick}/>}
-        {this.state.showComposition && <CompositionTool/>}
       </div>
     );
   }
