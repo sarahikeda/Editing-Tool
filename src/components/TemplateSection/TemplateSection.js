@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
+import DraftTemplates from '../TemplateTypes/DraftTemplates';
+import AllTemplates from '../TemplateTypes/AllTemplates';
+import OtherTemplates from '../TemplateTypes/OtherTemplates';
 import TemplateBox from '../TemplateBox/TemplateBox';
+
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class TemplateSection extends Component {
@@ -12,181 +16,32 @@ class TemplateSection extends Component {
     };
   }
 
+  removeTemplate = () => {
+    console.log('removal underway')
+    // make call to api with template id number to delete api
+    // re-render the templates
+  }
 
   render() {
     return (
       <div className="template-section container">
-        <p className="template-section-name">Drafts</p>
+        <DraftTemplates
+          removeTemplate={this.removeTemplate}
+          handleClick={this.props.handleClick}/>
+        <AllTemplates
+            removeTemplate={this.removeTemplate}
+            handleClick={this.props.handleClick}/>
         <Row>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
+          <Col className="template-columns" xs="6">
+            <p className="template-section-name">Standard Templates</p>
           </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="drafts"/>
+          <Col className="template-columns" xs="6">
+            <p className="template-section-name">My Templates</p>
           </Col>
         </Row>
-        <div className="expand-chevron">
-          <FontAwesomeIcon
-            className="expand-chevron"
-            icon="chevron-down"
-            onClick={() => this.setState({ openDrafts: !this.state.openDrafts })}
-          />
-        </div>
-        <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
-          <Row>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-          </Row>
-        </div>
-        <p className="template-section-name">All Templates</p>
-        <Row>
-          <Col className="template-columns" xs="3">
-            <TemplateBox handleClick={this.props.handleClick} class="all-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick} class="all-templates"/>
-          </Col>
-        </Row>
-        <div className="expand-chevron">
-          <FontAwesomeIcon
-            className="expand-chevron"
-            icon="chevron-down"
-            onClick={() => this.setState({ openAll: !this.state.openAll })}
-          />
-        </div>
-        <div className={"collapse" + (this.state.openAll ? ' in' : '')}>
-          <Row>
-            <Col className="template-columns" xs="3">
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-              <TemplateBox
-                handleClick={this.props.handleClick}
-                class="all-templates"/>
-            </Col>
-          </Row>
-        </div>
-        <Row>
-           <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-          </Col>
-          <Col className="template-columns"xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="all-templates"/>
-          </Col>
-           <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="my-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="my-templates"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="my-templates"/>
-            <TemplateBox
-              handleClick={this.props.handleClick}
-              class="my-templates"/>
-          </Col>
-        </Row>
+        <OtherTemplates
+          handleClick={this.props.handleClick}
+          removeTemplate={this.removeTemplate}/>
       </div>
     );
   }
