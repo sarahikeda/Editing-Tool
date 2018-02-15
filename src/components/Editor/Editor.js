@@ -49,7 +49,13 @@ class CKEditor extends React.Component {
     this.editorInstance = window.CKEDITOR.appendTo(
       ReactDOM.findDOMNode(this),
       {config:
-        {removePlugins: 'toolbar'}
+        {
+          extraPlugins: 'autogrow',
+          autoGrow_minHeight: 200,
+          autoGrow_maxHeight: 700,
+          autoGrow_bottomSpace: 25,
+          removePlugins: 'toolbar'
+        }
       },
       this.props.content
     );
@@ -73,7 +79,10 @@ class CKEditor extends React.Component {
 
 CKEditor.defaultProps = {
   content: "",
-  config: {},
+  config: {extraPlugins: 'autogrow',
+  autoGrow_minHeight: 200,
+  autoGrow_maxHeight: 700,
+  autoGrow_bottomSpace: 25},
   isScriptLoaded: false,
   scriptUrl: 'http://sarahikeda.github.io/ckeditor/ckeditor.js',
   activeClass: "",
