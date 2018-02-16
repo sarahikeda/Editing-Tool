@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import TemplateBox from '../TemplateBox/TemplateBox';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
@@ -15,50 +15,52 @@ class DraftTemplates extends Component {
   render() {
     return (
       <div>
-        <p className="template-section-name">Drafts</p>
-        <Row>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              removeTemplate={this.props.removeTemplate}
-              class="drafts"/>
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-          </Col>
-          <Col className="template-columns" xs="3">
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-            <TemplateBox
-              personalTemplate={true}
-              handleClick={this.props.handleClick}
-              class="drafts"/>
-          </Col>
-        </Row>
+        <Container>
+          <p className="template-section-name">Drafts</p>
+          <Row>
+            <Col className="template-columns" xs="3">
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                removeTemplate={this.props.removeTemplate}
+                class="drafts"/>
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                class="drafts"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                class="drafts"/>
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                class="drafts"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                class="drafts"/>
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                class="drafts"/>
+            </Col>
+            <Col className="template-columns" xs="3">
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                class="drafts"/>
+              <TemplateBox
+                personalTemplate={true}
+                handleClick={this.props.handleClick}
+                class="drafts"/>
+            </Col>
+          </Row>
+        </Container>
         <div className="expand-chevron">
           <FontAwesomeIcon
             className="expand-chevron"
@@ -67,24 +69,26 @@ class DraftTemplates extends Component {
           />
         </div>
         <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
-          <Row>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-            <Col className="template-columns" xs="3">
-              <TemplateBox class="drafts"/>
-              <TemplateBox class="drafts"/>
-            </Col>
-          </Row>
+          <Container>
+            <Row>
+              <Col className="template-columns" xs="3">
+                <TemplateBox class="drafts"/>
+                <TemplateBox class="drafts"/>
+              </Col>
+              <Col className="template-columns" xs="3">
+                <TemplateBox class="drafts"/>
+                <TemplateBox class="drafts"/>
+              </Col>
+              <Col className="template-columns" xs="3">
+                <TemplateBox class="drafts"/>
+                <TemplateBox class="drafts"/>
+              </Col>
+              <Col className="template-columns" xs="3">
+                <TemplateBox class="drafts"/>
+                <TemplateBox class="drafts"/>
+              </Col>
+            </Row>
+          </Container>
         </div>
       </div>
     );
