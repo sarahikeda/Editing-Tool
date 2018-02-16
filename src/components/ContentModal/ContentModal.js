@@ -8,7 +8,7 @@ export default class ContentModal extends Component {
         isOpen={this.props.modal}
         toggle={this.props.toggle}
         className={this.props.className}>
-        <ModalHeader toggle={this.props.toggle}></ModalHeader>
+        <ModalHeader toggle={this.props.toggle}>Save Template</ModalHeader>
         <ModalBody>
           <form className="form-inline">
             <div className="form-group">
@@ -21,9 +21,10 @@ export default class ContentModal extends Component {
             </div>
             <Button
               type="submit"
-              className="template-save btn btn-primary"
+              size="sm"
+              className="ml-2 btn"
               onClick={this.props.handleFileSave}>
-              Save Template
+              Save
             </Button>
 
           </form>
