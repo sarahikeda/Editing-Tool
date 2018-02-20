@@ -24,15 +24,20 @@ class TemplateSection extends Component {
   render() {
     return (
       <div className="template-section">
-
         <div className="template-container">
-          <DraftTemplates
+          <Row className="template-row">
+            <DraftTemplates
             removeTemplate={this.removeTemplate}
             handleClick={this.props.handleClick}/>
-          <RecentTemplates
-              removeTemplate={this.removeTemplate}
-              handleClick={this.props.handleClick}/>
-          <Row>
+          </Row>
+
+          <Row className="template-row">
+            <RecentTemplates
+                removeTemplate={this.removeTemplate}
+                handleClick={this.props.handleClick}/>
+          </Row>
+
+          <Row className="template-row">
             <Col className="template-columns" xs="6">
               <StandardTemplates
                 handleClick={this.props.handleClick}

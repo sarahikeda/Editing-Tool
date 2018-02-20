@@ -35,7 +35,7 @@ class MyTemplates extends Component {
           <p className="template-section-name">My Templates</p>
           <Row>
             {myTemplates}
-           </Row>
+          </Row>
         </Container>
         <div className="expand-chevron">
           <FontAwesomeIcon

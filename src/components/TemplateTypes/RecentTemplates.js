@@ -25,6 +25,7 @@ class RecentTemplates extends Component {
         <TemplateBox
           handleClick={this.props.handleClick}
           class="all-templates"
+          isStandard={templates.isStandard}
           templateName={templates.title} />
       )
     })
@@ -35,7 +36,7 @@ class RecentTemplates extends Component {
           <p className="template-section-name">All Templates</p>
           <p>Recently Opened</p>
           <Row>
-              {recentTemplates}
+            {recentTemplates}
           </Row>
         </Container>
         <div className="expand-chevron">

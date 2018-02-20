@@ -35,7 +35,7 @@ class StandardTemplates extends Component {
           <p className="template-section-name">Standard Templates</p>
           <Row>
             {standardTemplates}
-           </Row>
+          </Row>
         </Container>
         <div className="expand-chevron">
           <FontAwesomeIcon
@@ -47,9 +47,7 @@ class StandardTemplates extends Component {
         <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
           <Container>
             <Row>
-              <Col className="template-columns" xs="6">
-                {standardTemplates}
-              </Col>
+              {standardTemplates}
             </Row>
           </Container>
         </div>

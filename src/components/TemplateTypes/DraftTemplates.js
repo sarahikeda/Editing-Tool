@@ -24,6 +24,7 @@ class DraftTemplates extends Component {
         <TemplateBox
           handleClick={this.props.handleClick}
           class="drafts"
+          isStandard={templates.isStandard}
           templateName={templates.title} />
       )
     })
