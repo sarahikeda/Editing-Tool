@@ -1,0 +1,61 @@
+{
+    "links": [{
+            "rel": "self",
+            "href": "http://localhost:41995/ecmct/draft/list?page=0&size=10&sort=updatedDt,desc"
+        }
+    ],
+    "content": [{
+            "id": 6,
+            "title": "Draft #6",
+            "imgUrl": "http://somewhere.ontheweb.com/draft-image.jpg",
+            "updatedDt": 1515526281323,
+            "links": []
+        }, {
+            "id": 10,
+            "title": "Draft #10",
+            "imgUrl": "http://somewhere.ontheweb.com/draft-image.jpg",
+            "updatedDt": 1515526281323,
+            "links": []
+        }, {
+            "id": 9,
+            "title": "Draft #9",
+            "imgUrl": "http://somewhere.ontheweb.com/draft-image.jpg",
+            "updatedDt": 1515526281323,
+            "links": []
+        },
+        {
+            "id": 6,
+            "title": "Draft #6",
+            "imgUrl": "http://somewhere.ontheweb.com/draft-image.jpg",
+            "updatedDt": 1515526281323,
+            "links": []
+        },
+        {
+            "id": 6,
+            "title": "Draft #6",
+            "imgUrl": "http://somewhere.ontheweb.com/draft-image.jpg",
+            "updatedDt": 1515526281323,
+            "links": []
+          },
+          {
+            "id": 6,
+            "title": "Draft #6",
+            "imgUrl": "http://somewhere.ontheweb.com/draft-image.jpg",
+            "updatedDt": 1515526281323,
+            "links": []
+        },
+        {
+            "id": 6,
+            "title": "Draft #6",
+            "imgUrl": "http://somewhere.ontheweb.com/draft-image.jpg",
+            "updatedDt": 1515526281323,
+            "links": []
+        }
+    ],
+    "page": {
+        "size": 3,
+        "totalElements": 10,
+        "totalPages": 4,
+        "number": 0
+    }
+}

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import TemplateBox from '../TemplateBox/TemplateBox';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import DraftTemplateData from '../../draftTemplateData.json';
+import StandardTemplateData from '../../standardTemplateData.json';
 
-class DraftTemplates extends Component {
+class StandardTemplates extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,17 +13,18 @@ class DraftTemplates extends Component {
     };
   }
 
-  retrieveDraftTemplates = () => {
-    // API call: /ecmct/draft/list?ssoId=nj04730
-    return DraftTemplateData.content
+  retrieveStandardTemplates = () => {
+    // API call: /ecmct/template/list-standard?ssoId=nj04730
+    return StandardTemplateData.content
   }
 
   render() {
-    const draftTemplates = this.retrieveDraftTemplates().map(templates => {
+    const standardTemplates = this.retrieveStandardTemplates().map(templates => {
       return (
         <TemplateBox
           handleClick={this.props.handleClick}
           class="drafts"
+          isStandard={templates.isStandard}
           templateName={templates.title} />
       )
     })
@@ -31,10 +32,10 @@ class DraftTemplates extends Component {
     return (
       <div>
         <Container>
-          <p className="template-section-name">Drafts</p>
+          <p className="template-section-name">Standard Templates</p>
           <Row>
-            {draftTemplates}
-          </Row>
+            {standardTemplates}
+           </Row>
         </Container>
         <div className="expand-chevron">
           <FontAwesomeIcon
@@ -46,7 +47,9 @@ class DraftTemplates extends Component {
         <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
           <Container>
             <Row>
-              {draftTemplates}
+              <Col className="template-columns" xs="6">
+                {standardTemplates}
+              </Col>
             </Row>
           </Container>
         </div>
@@ -55,4 +58,4 @@ class DraftTemplates extends Component {
   }
 }
 
-export default DraftTemplates;
+export default StandardTemplates;

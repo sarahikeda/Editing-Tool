@@ -1,0 +1,40 @@
+{
+  "links": [{
+      "rel": "self",
+      "href": "http://localhost:41995/ecmct/template/list-recent?page=0&size=3"
+    }
+  ],
+  "content": [{
+      "id": 18,
+      "title": "Template #34038",
+      "imgUrl": "http://somewhere.ontheweb.com/image.jpg",
+      "isStandard": true,
+      "links": []
+    }, {
+      "id": 17,
+      "title": "Template #54203",
+      "imgUrl": "http://somewhere.ontheweb.com/image.jpg",
+      "isStandard": true,
+      "links": []
+    }, {
+      "id": 20,
+      "title": "Template #82067",
+      "imgUrl": "http://somewhere.ontheweb.com/image.jpg",
+      "isStandard": true,
+      "links": []
+    },
+    {
+        "id": 18,
+        "title": "Template #34038",
+        "imgUrl": "http://somewhere.ontheweb.com/image.jpg",
+        "isStandard": true,
+        "links": []
+      }
+  ],
+  "page": {
+    "size": 3,
+    "totalElements": 3,
+    "totalPages": 1,
+    "number": 0
+  }
+}

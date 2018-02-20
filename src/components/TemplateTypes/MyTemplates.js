@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import TemplateBox from '../TemplateBox/TemplateBox';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import DraftTemplateData from '../../draftTemplateData.json';
+import MyTemplateData from '../../myTemplateData.json';
 
-class DraftTemplates extends Component {
+class MyTemplates extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,17 +13,18 @@ class DraftTemplates extends Component {
     };
   }
 
-  retrieveDraftTemplates = () => {
-    // API call: /ecmct/draft/list?ssoId=nj04730
-    return DraftTemplateData.content
+  retrieveMyTemplates = () => {
+    // API call: /ecmct/template/list-my?ssoId=nj04730
+    return MyTemplateData.content
   }
 
   render() {
-    const draftTemplates = this.retrieveDraftTemplates().map(templates => {
+    const myTemplates = this.retrieveMyTemplates().map(templates => {
       return (
         <TemplateBox
           handleClick={this.props.handleClick}
           class="drafts"
+          isStandard={templates.isStandard}
           templateName={templates.title} />
       )
     })
@@ -31,10 +32,10 @@ class DraftTemplates extends Component {
     return (
       <div>
         <Container>
-          <p className="template-section-name">Drafts</p>
+          <p className="template-section-name">My Templates</p>
           <Row>
-            {draftTemplates}
-          </Row>
+            {myTemplates}
+           </Row>
         </Container>
         <div className="expand-chevron">
           <FontAwesomeIcon
@@ -46,7 +47,7 @@ class DraftTemplates extends Component {
         <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
           <Container>
             <Row>
-              {draftTemplates}
+              {myTemplates}
             </Row>
           </Container>
         </div>
@@ -55,4 +56,4 @@ class DraftTemplates extends Component {
   }
 }
 
-export default DraftTemplates;
+export default MyTemplates;

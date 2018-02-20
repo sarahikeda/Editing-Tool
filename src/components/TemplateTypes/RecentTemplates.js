@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import TemplateBox from '../TemplateBox/TemplateBox';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import DraftTemplateData from '../../draftTemplateData.json';
+import RecentTemplateData from '../../recentTemplateData.json';
 
-class DraftTemplates extends Component {
+class RecentTemplates extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,17 +13,18 @@ class DraftTemplates extends Component {
     };
   }
 
-  retrieveDraftTemplates = () => {
-    // API call: /ecmct/draft/list?ssoId=nj04730
-    return DraftTemplateData.content
-  }
+
+    retrieveRecentTemplates = () => {
+      // API call: /ecmct/template/list-recent?ssoId=nj04730
+      return RecentTemplateData.content
+    }
 
   render() {
-    const draftTemplates = this.retrieveDraftTemplates().map(templates => {
+    const recentTemplates = this.retrieveRecentTemplates().map(templates => {
       return (
         <TemplateBox
           handleClick={this.props.handleClick}
-          class="drafts"
+          class="all-templates"
           templateName={templates.title} />
       )
     })
@@ -31,23 +32,24 @@ class DraftTemplates extends Component {
     return (
       <div>
         <Container>
-          <p className="template-section-name">Drafts</p>
+          <p className="template-section-name">All Templates</p>
+          <p>Recently Opened</p>
           <Row>
-            {draftTemplates}
+              {recentTemplates}
           </Row>
         </Container>
         <div className="expand-chevron">
           <FontAwesomeIcon
             className="expand-chevron"
             icon="chevron-down"
-            onClick={() => this.setState({ openDrafts: !this.state.openDrafts })}
+            onClick={() => this.setState({ openAll: !this.state.openAll })}
           />
         </div>
-        <div className={"collapse" + (this.state.openDrafts ? ' in' : '')}>
+        <div className={"collapse" + (this.state.openAll ? ' in' : '')}>
           <Container>
             <Row>
-              {draftTemplates}
-            </Row>
+                  {recentTemplates}
+              </Row>
           </Container>
         </div>
       </div>
@@ -55,4 +57,4 @@ class DraftTemplates extends Component {
   }
 }
 
-export default DraftTemplates;
+export default RecentTemplates;
